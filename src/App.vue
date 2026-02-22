@@ -11,7 +11,8 @@ onMounted(() => {
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({
     canvas: bgCanvas.value,
-    antialias: true
+    antialias: true,
+    alpha: true
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -60,6 +61,7 @@ onMounted(() => {
   canvas.width = 128;
   canvas.height = 128;
   const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 128, 128);
 
   // Draw multiple puffs to create a more organic cloud structure
   for (let i = 0; i < 8; i++) {
@@ -76,6 +78,9 @@ onMounted(() => {
   }
 
   const cloudTexture = new THREE.CanvasTexture(canvas);
+  // Disable mipmaps to prevent artifacts on mobile devices
+  cloudTexture.minFilter = THREE.LinearFilter;
+  cloudTexture.magFilter = THREE.LinearFilter;
 
   const clouds = [];
   // Use Basic material to ensure clouds are bright white and ignore shading
