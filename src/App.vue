@@ -12,7 +12,8 @@ onMounted(() => {
   const renderer = new THREE.WebGLRenderer({
     canvas: bgCanvas.value,
     antialias: true,
-    alpha: true
+    alpha: true,
+    precision: 'highp'
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -79,8 +80,10 @@ onMounted(() => {
 
   const cloudTexture = new THREE.CanvasTexture(canvas);
   // Disable mipmaps to prevent artifacts on mobile devices
+  cloudTexture.generateMipmaps = false;
   cloudTexture.minFilter = THREE.LinearFilter;
   cloudTexture.magFilter = THREE.LinearFilter;
+  cloudTexture.needsUpdate = true;
 
   const clouds = [];
   // Use Basic material to ensure clouds are bright white and ignore shading
