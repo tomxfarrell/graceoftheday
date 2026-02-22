@@ -67,6 +67,7 @@ onMounted(() => {
   canvas.width = 256; // Increased slightly for better mobile clarity
   canvas.height = 256;
   const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 256, 256);
 
   for (let i = 0; i < 8; i++) {
     const x = 128 + (Math.random() - 0.5) * 120;
@@ -82,6 +83,10 @@ onMounted(() => {
   }
 
   const cloudTexture = new THREE.CanvasTexture(canvas);
+  // Disable mipmaps to prevent artifacts on mobile devices
+  cloudTexture.generateMipmaps = false;
+  cloudTexture.minFilter = THREE.LinearFilter;
+  cloudTexture.magFilter = THREE.LinearFilter;
   const clouds = [];
   const cloudMaterial = new THREE.MeshBasicMaterial({
     map: cloudTexture,
@@ -89,7 +94,8 @@ onMounted(() => {
     opacity: 0.8,
     depthWrite: false, // Essential to prevent the "confetti" rectangles
     depthTest: true,
-    blending: THREE.NormalBlending
+    blending: THREE.NormalBlending,
+    alphaTest: 0.01
   });
 
   const cloudGeometry = new THREE.PlaneGeometry(10, 6);
