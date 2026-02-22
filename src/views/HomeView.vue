@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createClient } from '@supabase/supabase-js';
 
 // --- State Management ---
@@ -14,14 +13,6 @@ const litColor = ref('#808080');
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-// For local development, we'll initialize the AI client directly.
-// In production, the AI key is kept secret in a serverless function.
-let model;
-if (import.meta.env.DEV) {
-  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEN_AI_KEY);
-  model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
-}
 
 // --- Computed Properties ---
 const formattedDate = computed(() => {
@@ -96,37 +87,16 @@ const fetchData = async () => {
     // 2. If no data exists, this user is the "Providential Visitor"
     console.log("First visitor of the day! Generating new reflection...");
     
-    let parsed;
+    // Call our secure serverless function
+    const response = await fetch('/.netlify/functions/generate-reflection', {
+      method: 'POST',
+      body: JSON.stringify({ date: new Date().toDateString() })
+    });
 
-    if (import.meta.env.PROD) {
-      // In PRODUCTION (on Netlify), call our secure serverless function
-      const response = await fetch('/.netlify/functions/generate-reflection', {
-        method: 'POST',
-        body: JSON.stringify({ date: new Date().toDateString() })
-      });
-
-      if (!response.ok) {
-        throw new Error(`Netlify function failed with status: ${response.status}`);
-      }
-      parsed = await response.json();
-    } else {
-      // In DEVELOPMENT (local), call the AI directly
-      const prompt = `
-        Today's date is ${new Date().toDateString()}. 
-        Identify the Catholic Feast/Day, Season, and traditional Color.
-        Provide the main Scripture of the day, a daily Virtue, a concrete Action Item to practice it, a 3-sentence Reflection, and a short Prayer.
-        Return ONLY a JSON object:
-        { "feast": "Title", "season": "SeasonName", "color": "colorname", "scripture": "Verse text", "verse_ref": "Reference", "virtue": "Word: Action", "action": "Concrete action...", "reflection": "...", "prayer": "Short prayer..." }
-      `;
-      const result = await model.generateContent(prompt);
-      const text = result.response.text();
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        parsed = JSON.parse(jsonMatch[0]);
-      } else {
-        throw new Error("Failed to parse AI response locally.");
-      }
+    if (!response.ok) {
+      throw new Error(`Netlify function failed with status: ${response.status}`);
     }
+    const parsed = await response.json();
 
     if (parsed) {
       // 3. Save it to Supabase so the next person gets it instantly
