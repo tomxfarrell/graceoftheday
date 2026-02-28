@@ -329,15 +329,7 @@ h2 {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
 
-  h3 {
-    text-align: center;
-    font-size: 1.6rem;
-    color: #2c3e50;
-    margin-bottom: 0.75rem;
-  }
-
   &.scripture-box {
-    padding: 1rem;
     animation-delay: 0.4s;
     text-align: center;
 

@@ -280,6 +280,9 @@ watch(route, () => {
 .hamburger-btn {
   display: none;
   z-index: 20;
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (max-width: 820px) {

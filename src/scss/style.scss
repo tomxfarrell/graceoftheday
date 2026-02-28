@@ -11,7 +11,7 @@ body {
 
 .content-area {
   flex: 1;
-  padding: 1rem;
+  padding: 1.5rem;
   position: relative;
   z-index: 1;
   @media (min-width: 768px) {
@@ -30,13 +30,12 @@ body {
   border-top-width: 6px;
   border-top-style: solid;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  padding: 5rem 1rem;
+  padding: 4rem 1.5rem;
   position: relative;
   transition: border-color 0.8s ease;
   animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   @media (min-width: 768px) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 5rem 2rem;
   }
 }
 
