@@ -152,6 +152,12 @@ const toggleMenu = () => {
 watch(route, () => {
   isMenuOpen.value = false;
 });
+
+const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};
+
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -184,14 +190,15 @@ watch(route, () => {
 
     <main class="content-area">
       <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
+        <transition name="fade" mode="out-in" @before-enter="scrollToTop">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
 
     <footer class="app-footer">
-      <p>Ad Maiorem Dei Gloriam</p>
+      <p class="motto">Ad Maiorem Dei Gloriam</p>
+      <p class="copyright">&copy; {{ currentYear }} Grace of the Day</p>
     </footer>
   </div>
 </template>
@@ -266,13 +273,22 @@ watch(route, () => {
   }
 
   .app-footer {
-    padding: 1rem 2rem;
+    padding: 0 2rem 1rem;
     text-align: center;
 
     position: relative;
     z-index: 1;
-    p {
-      font-size: 0.8rem;
+
+    .motto {
+      font-family: 'New York', 'Georgia', serif;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: rgba(0, 0, 0, 0.4);
+      margin: 0;
     }
   }
 }

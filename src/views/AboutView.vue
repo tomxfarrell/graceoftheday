@@ -68,10 +68,85 @@ import ContentCard from '../components/ContentCard.vue';
 
 $spirit-purple: #8e44ad;
 
+.content-grid {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+
+  section {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    // Entrance Animation
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    h2 {
+      font-family: 'New York', 'Georgia', serif;
+      font-size: 1.3rem;
+      color: $spirit-purple;
+      margin-bottom: 1rem;
+    }
+
+    p,
+    li {
+      line-height: 1.7;
+    }
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    section:first-child {
+      grid-column: 1 / -1;
+      text-align: center;
+
+      h2 {
+        // Emphasize the main section's title
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
 .footer-blessing {
-  margin-top: 40px;
+  margin-top: 4rem;
   text-align: center;
-  border-top: 1px solid #eee;
-  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 2.5rem;
+
+  p {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  strong {
+    display: block;
+    font-family: 'New York', 'Georgia', serif;
+    color: $spirit-purple;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

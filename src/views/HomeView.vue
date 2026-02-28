@@ -238,7 +238,9 @@ onMounted(() => {
 
       <div class="daily-virtue">
         <h2>Today's Virtue</h2>
-        <span class="virtue-content">{{ aiResponse.virtue }}</span>
+        <span class="virtue-content" :style="{ color: litColor }">{{
+          aiResponse.virtue
+        }}</span>
       </div>
     </div>
   </ContentCard>
@@ -383,14 +385,17 @@ h2 {
 
 .daily-virtue {
   text-align: center;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   opacity: 0;
   animation: fadeIn 0.8s ease forwards 0.7s;
 
   .virtue-content {
-    font-weight: 600;
-    color: #2c3e50;
-    font-size: 1.3rem;
+    display: block;
+    font-family: 'New York', 'Georgia', serif;
+    font-size: 2rem;
+    margin-top: 0.5rem;
   }
 }
 
