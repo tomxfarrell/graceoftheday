@@ -15,6 +15,7 @@ const aiResponse = ref({
 });
 const loading = ref(true);
 const litColor = ref('#808080');
+const showCopyConfirmation = ref(false);
 
 // --- Configuration ---
 // These are loaded from .env file for local dev, and from Netlify environment variables in production
@@ -149,21 +150,32 @@ const fetchData = async () => {
 };
 
 const handleShare = async () => {
-  const text = `${dayData.value.title}\n\n"${aiResponse.value.scripture}"\n— ${aiResponse.value.verse_ref}\n\nReflection: ${aiResponse.value.reflection}`;
+  const shareText = [
+    dayData.value.title,
+    `\n"${aiResponse.value.scripture}" — ${aiResponse.value.verse_ref}`,
+    `\nReflection: ${aiResponse.value.reflection}`,
+    `\n\nShared from Grace of the Day`,
+  ].join('\n');
 
   if (navigator.share) {
     try {
       await navigator.share({
         title: 'Grace of the Day',
-        text: text,
+        text: shareText,
         url: window.location.href,
       });
     } catch (err) {
-      // User cancelled share
+      // User cancelled share, do nothing.
     }
   } else {
-    await navigator.clipboard.writeText(text);
-    alert('Reflection copied to clipboard!');
+    // Fallback for desktop: copy to clipboard
+    await navigator.clipboard.writeText(shareText);
+
+    // Show a temporary confirmation message instead of an alert
+    showCopyConfirmation.value = true;
+    setTimeout(() => {
+      showCopyConfirmation.value = false;
+    }, 2000);
   }
 };
 
@@ -199,7 +211,8 @@ onMounted(() => {
         <polyline points="16 6 12 2 8 6"></polyline>
         <line x1="12" y1="2" x2="12" y2="15"></line>
       </svg>
-      <span>Share</span>
+      <span v-if="!showCopyConfirmation">Share</span>
+      <span v-else>Copied!</span>
     </button>
 
     <div class="spiritual-content">
