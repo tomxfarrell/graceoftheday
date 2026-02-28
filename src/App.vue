@@ -1,20 +1,30 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import * as THREE from 'three';
 import AppLogo from './components/AppLogo.vue';
 
 const bgCanvas = ref(null);
+const isMenuOpen = ref(false);
+const route = useRoute();
 
 onMounted(() => {
+  // --- Three.js Scene Setup ---
+
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  
+  const camera = new THREE.PerspectiveCamera(
+    60,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+
   const renderer = new THREE.WebGLRenderer({
     canvas: bgCanvas.value,
     antialias: true,
     alpha: true,
     // Highp is good, but we add a fallback for older mobile chips
-    precision: 'highp' 
+    precision: 'highp',
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -48,14 +58,14 @@ onMounted(() => {
       }
     `,
     uniforms: {
-      topColor: { value: new THREE.Color(0x87CEEB) },
-      bottomColor: { value: new THREE.Color(0xffffff) }
+      topColor: { value: new THREE.Color(0x87ceeb) },
+      bottomColor: { value: new THREE.Color(0xffffff) },
     },
     side: THREE.DoubleSide,
     depthWrite: false, // Prevents Z-fighting confetti
-    depthTest: false
+    depthTest: false,
   });
-  
+
   const sky = new THREE.Mesh(skyGeometry, skyMaterial);
   // We don't need to scale or move this sky if we use the simplified vertex shader above
   scene.add(sky);
@@ -95,7 +105,7 @@ onMounted(() => {
     opacity: 0.8,
     depthWrite: false, // Essential to prevent the "confetti" rectangles
     depthTest: true,
-    blending: THREE.NormalBlending
+    blending: THREE.NormalBlending,
   });
 
   const cloudGeometry = new THREE.PlaneGeometry(10, 6);
@@ -113,13 +123,13 @@ onMounted(() => {
   }
 
   const tick = () => {
-    clouds.forEach(cloud => {
+    clouds.forEach((cloud) => {
       const depth = -cloud.position.z;
-      const speed = 0.03 / depth; 
+      const speed = 0.03 / depth;
       cloud.position.x += speed;
       if (cloud.position.x > 25) cloud.position.x = -25;
     });
-    
+
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
   };
@@ -132,23 +142,43 @@ onMounted(() => {
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 });
+
+// --- Mobile Menu Logic ---
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+// Close menu on route change to handle browser back/forward and link clicks
+watch(route, () => {
+  isMenuOpen.value = false;
+});
 </script>
 
 <template>
   <div id="app-wrapper">
     <canvas ref="bgCanvas" class="webgl-bg"></canvas>
-    
+
     <header class="app-header">
       <div class="header-container">
         <router-link to="/" class="brand-link">
           <AppLogo class="logo" />
           <h1 class="app-title">Grace of the Day</h1>
         </router-link>
-        <nav class="main-links">
+        <nav class="main-links" :class="{ 'is-open': isMenuOpen }">
           <router-link to="/" class="nav-link">Home</router-link>
           <router-link to="/about" class="nav-link">Our Mission</router-link>
           <router-link to="/prayers" class="nav-link">Prayers</router-link>
         </nav>
+        <button
+          class="hamburger-btn"
+          @click="toggleMenu"
+          :class="{ 'is-active': isMenuOpen }"
+          aria-label="Toggle menu"
+        >
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
       </div>
     </header>
 
@@ -167,17 +197,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@use "sass:color";
-
-$parchment: #f4f1ea;
-$charcoal: #2c3e50;
-
-body {
-  margin: 0;
-  background-color: transparent;
-  color: $charcoal;
-  font-family: 'Georgia', serif;
-}
+@use './scss/variables' as *;
 
 .webgl-bg {
   position: fixed;
@@ -198,15 +218,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
+    padding: 0 4rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 
     .header-container {
-      max-width: 1000px;
+      max-width: $container-max-width;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 1rem 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -217,17 +238,17 @@ body {
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      
+
       .logo {
         width: 48px;
         height: 48px;
-        color: #f1c40f;
+        color: $yellow;
       }
-      
-      .app-title { 
-        font-size: 1.6rem; 
+
+      .app-title {
+        font-size: 1.6rem;
         color: $charcoal;
-        margin: 0; 
+        margin: 0;
       }
     }
 
@@ -244,19 +265,92 @@ body {
     }
   }
 
-  .content-area {
-    flex: 1;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-
   .app-footer {
     padding: 1rem 2rem;
     text-align: center;
-    font-size: 0.8rem;
+
     position: relative;
     z-index: 1;
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.hamburger-btn {
+  display: none;
+  z-index: 20;
+}
+
+@media (max-width: 820px) {
+  #app-wrapper .app-header {
+    padding: 0 1.5rem;
+
+    .main-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh; // Use dynamic viewport height for mobile
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      // Hide by default
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+      &.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+    }
+
+    .hamburger-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2rem;
+      height: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+
+      .line {
+        width: 2rem;
+        height: 2px;
+        background: $charcoal;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        transform-origin: center;
+      }
+
+      &.is-active .line:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      &.is-active .line:nth-child(2) {
+        opacity: 0;
+      }
+      &.is-active .line:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
   }
 }
 
