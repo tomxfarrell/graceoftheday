@@ -151,7 +151,7 @@ const fetchData = async () => {
 
 const handleShare = async () => {
   const shareText = [
-    dayData.value.title,
+    dayData.value?.title || 'Grace of the Day',
     `\n"${aiResponse.value.scripture}" — ${aiResponse.value.verse_ref}`,
     `\nReflection: ${aiResponse.value.reflection}`,
     `\n\nShared from Grace of the Day`,
@@ -169,13 +169,20 @@ const handleShare = async () => {
     }
   } else {
     // Fallback for desktop: copy to clipboard
-    await navigator.clipboard.writeText(shareText);
-
-    // Show a temporary confirmation message instead of an alert
-    showCopyConfirmation.value = true;
-    setTimeout(() => {
-      showCopyConfirmation.value = false;
-    }, 2000);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(shareText);
+        // Show a temporary confirmation message instead of an alert
+        showCopyConfirmation.value = true;
+        setTimeout(() => {
+          showCopyConfirmation.value = false;
+        }, 2000);
+      } else {
+        throw new Error('Clipboard API unavailable');
+      }
+    } catch (err) {
+      alert('Could not copy to clipboard. Please share manually.');
+    }
   }
 };
 
