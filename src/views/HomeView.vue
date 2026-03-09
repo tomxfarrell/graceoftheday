@@ -166,85 +166,87 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="loading" class="loading-state">
-    <div class="spinner"></div>
-    <p>Loading today's grace...</p>
-  </div>
+  <div class="home-view">
+    <ShareOptions
+      v-if="showShareOptions"
+      :title="dayData?.title || 'Grace of the Day'"
+      :text="fullShareText"
+      :url="shareUrl"
+      @close="showShareOptions = false"
+    />
 
-  <ShareOptions
-    v-if="showShareOptions"
-    :title="dayData?.title || 'Grace of the Day'"
-    :text="fullShareText"
-    :url="shareUrl"
-    @close="showShareOptions = false"
-  />
+    <div v-if="loading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading today's grace...</p>
+    </div>
 
-  <ContentCard v-else :border-color="litColor">
-    <button
-      @click="handleShare"
-      class="share-btn-corner"
-      :style="{ color: litColor, borderColor: litColor + '40' }"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+    <ContentCard v-else :border-color="litColor">
+      <button
+        @click="handleShare"
+        class="share-btn-corner"
+        :style="{ color: litColor, borderColor: litColor + '40' }"
       >
-        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-        <polyline points="16 6 12 2 8 6"></polyline>
-        <line x1="12" y1="2" x2="12" y2="15"></line>
-      </svg>
-      <span>Share</span>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+          <polyline points="16 6 12 2 8 6"></polyline>
+          <line x1="12" y1="2" x2="12" y2="15"></line>
+        </svg>
+        <span>Share</span>
+      </button>
 
-    <div class="spiritual-content">
-      <header class="daily-header">
-        <div class="meta-row">
-          <span class="date">{{ formattedDate }}</span>
-          <span class="separator">•</span>
-          <span class="season" :style="{ color: litColor }">{{
-            currentSeason.label
+      <div class="spiritual-content">
+        <header class="daily-header">
+          <div class="meta-row">
+            <span class="date">{{ formattedDate }}</span>
+            <span class="separator">•</span>
+            <span class="season" :style="{ color: litColor }">{{
+              currentSeason.label
+            }}</span>
+          </div>
+          <h1 class="feast-title">{{ dayData?.title }}</h1>
+        </header>
+
+        <div class="content-block scripture-box">
+          <p class="scripture-text">"{{ aiResponse.scripture }}"</p>
+          <cite>— {{ aiResponse.verse_ref }}</cite>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="content-block reflection-box">
+          <h2>Spiritual Reflection</h2>
+          <p class="reflection-text">{{ aiResponse.reflection }}</p>
+        </div>
+
+        <div v-if="aiResponse.prayer" class="content-block prayer-box">
+          <h2>Daily Prayer</h2>
+          <p class="prayer-text">{{ aiResponse.prayer }}</p>
+        </div>
+
+        <div v-if="aiResponse.action" class="content-block action-box">
+          <h2>Faith in Action</h2>
+          <p class="action-text">{{ aiResponse.action }}</p>
+        </div>
+
+        <div class="daily-virtue">
+          <h2>Today's Virtue</h2>
+          <span class="virtue-content" :style="{ color: litColor }">{{
+            aiResponse.virtue
           }}</span>
         </div>
-        <h1 class="feast-title">{{ dayData?.title }}</h1>
-      </header>
-
-      <div class="content-block scripture-box">
-        <p class="scripture-text">"{{ aiResponse.scripture }}"</p>
-        <cite>— {{ aiResponse.verse_ref }}</cite>
       </div>
-
-      <hr class="divider" />
-
-      <div class="content-block reflection-box">
-        <h2>Spiritual Reflection</h2>
-        <p class="reflection-text">{{ aiResponse.reflection }}</p>
-      </div>
-
-      <div v-if="aiResponse.prayer" class="content-block prayer-box">
-        <h2>Daily Prayer</h2>
-        <p class="prayer-text">{{ aiResponse.prayer }}</p>
-      </div>
-
-      <div v-if="aiResponse.action" class="content-block action-box">
-        <h2>Faith in Action</h2>
-        <p class="action-text">{{ aiResponse.action }}</p>
-      </div>
-
-      <div class="daily-virtue">
-        <h2>Today's Virtue</h2>
-        <span class="virtue-content" :style="{ color: litColor }">{{
-          aiResponse.virtue
-        }}</span>
-      </div>
-    </div>
-  </ContentCard>
+    </ContentCard>
+  </div>
 </template>
 
 <style lang="scss" scoped>

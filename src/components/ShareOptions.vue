@@ -31,7 +31,7 @@ const shareToX = () => {
 const shareToFacebook = () => {
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     props.url
-  )}`;
+  )}&quote=${encodeURIComponent(props.text)}`;
   window.open(facebookUrl, '_blank', 'noopener,noreferrer');
 };
 
