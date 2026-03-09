@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { createClient } from '@supabase/supabase-js';
 import ContentCard from '../components/ContentCard.vue';
+import ShareOptions from '../components/ShareOptions.vue';
 
 // --- State Management ---
 const dayData = ref(null);
@@ -15,7 +16,7 @@ const aiResponse = ref({
 });
 const loading = ref(true);
 const litColor = ref('#808080');
-const showCopyConfirmation = ref(false);
+const showShareOptions = ref(false);
 
 // --- Configuration ---
 // These are loaded from .env file for local dev, and from Netlify environment variables in production
@@ -149,42 +150,15 @@ const fetchData = async () => {
   }
 };
 
-const handleShare = async () => {
-  const shareText = [
-    dayData.value?.title || 'Grace of the Day',
-    `\n"${aiResponse.value.scripture}" — ${aiResponse.value.verse_ref}`,
-    `\nReflection: ${aiResponse.value.reflection}`,
-    `\n\nShared from Grace of the Day`,
-  ].join('\n');
-
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: 'Grace of the Day',
-        text: shareText,
-        url: window.location.href,
-      });
-    } catch (err) {
-      // User cancelled share, do nothing.
-    }
-  } else {
-    // Fallback for desktop: copy to clipboard
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(shareText);
-        // Show a temporary confirmation message instead of an alert
-        showCopyConfirmation.value = true;
-        setTimeout(() => {
-          showCopyConfirmation.value = false;
-        }, 2000);
-      } else {
-        throw new Error('Clipboard API unavailable');
-      }
-    } catch (err) {
-      alert('Could not copy to clipboard. Please share manually.');
-    }
-  }
+const handleShare = () => {
+  showShareOptions.value = true;
 };
+
+const fullShareText = computed(() => {
+  return `Today's Reflection: ${dayData.value?.title}\n\n"${aiResponse.value.scripture}" — ${aiResponse.value.verse_ref}\n\nReflection: ${aiResponse.value.reflection}\n\nPrayer: ${aiResponse.value.prayer}\n\nAction: ${aiResponse.value.action}\n\nShared from Grace of the Day (${window.location.href})`;
+});
+
+const shareUrl = window.location.href;
 
 onMounted(() => {
   fetchData();
@@ -196,6 +170,14 @@ onMounted(() => {
     <div class="spinner"></div>
     <p>Loading today's grace...</p>
   </div>
+
+  <ShareOptions
+    v-if="showShareOptions"
+    :title="dayData?.title || 'Grace of the Day'"
+    :text="fullShareText"
+    :url="shareUrl"
+    @close="showShareOptions = false"
+  />
 
   <ContentCard v-else :border-color="litColor">
     <button
@@ -218,8 +200,7 @@ onMounted(() => {
         <polyline points="16 6 12 2 8 6"></polyline>
         <line x1="12" y1="2" x2="12" y2="15"></line>
       </svg>
-      <span v-if="!showCopyConfirmation">Share</span>
-      <span v-else>Copied!</span>
+      <span>Share</span>
     </button>
 
     <div class="spiritual-content">

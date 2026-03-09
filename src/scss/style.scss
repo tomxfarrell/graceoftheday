@@ -2,11 +2,16 @@
 @use 'variables' as *;
 @use 'typography';
 
+html {
+  overscroll-behavior-y: none;
+}
+
 body {
   margin: 0;
   background-color: transparent;
   color: $charcoal;
   font-family: 'Georgia', serif;
+  overscroll-behavior-y: none;
 }
 
 .content-area {
