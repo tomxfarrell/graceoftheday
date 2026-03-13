@@ -361,13 +361,13 @@ const currentYear = new Date().getFullYear();
       }
 
       &.is-active .line:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(0.667rem) rotate(45deg);
       }
       &.is-active .line:nth-child(2) {
         opacity: 0;
       }
       &.is-active .line:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-0.667rem) rotate(-45deg);
       }
     }
   }
