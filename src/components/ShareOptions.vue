@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   title: {
@@ -19,29 +19,6 @@ const props = defineProps({
 const emit = defineEmits(['close']);
 
 const copyStatus = ref(''); // 'link', 'text', ''
-const canShare = ref(false);
-
-onMounted(() => {
-  if (navigator.share) {
-    canShare.value = true;
-  }
-});
-
-const nativeShare = async () => {
-  try {
-    await navigator.share({
-      title: props.title,
-      text: props.text,
-      url: props.url,
-    });
-    emit('close');
-  } catch (err) {
-    // Avoid logging an error if the user cancels the share dialog.
-    if (err.name !== 'AbortError') {
-      console.error('Failed to share:', err);
-    }
-  }
-};
 
 const shareToX = () => {
   const tweetText = `"${props.text.substring(0, 220)}..."\n\n${props.title}`;
@@ -52,9 +29,7 @@ const shareToX = () => {
 };
 
 const shareToFacebook = () => {
-  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    props.url
-  )}&quote=${encodeURIComponent(props.text)}`;
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(props.url)}`;
   window.open(facebookUrl, '_blank', 'noopener,noreferrer');
 };
 
@@ -81,9 +56,6 @@ const copyToClipboard = async (content, type) => {
         <button class="close-button" @click="emit('close')">&times;</button>
       </div>
       <div class="share-options">
-        <button v-if="canShare" @click="nativeShare">
-          <span>Share...</span>
-        </button>
         <button @click="shareToX">
           <span>Share on X</span>
         </button>
