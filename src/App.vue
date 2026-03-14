@@ -173,7 +173,9 @@ const currentYear = new Date().getFullYear();
         <nav class="main-links" :class="{ 'is-open': isMenuOpen }">
           <router-link to="/" class="nav-link">Home</router-link>
           <router-link to="/about" class="nav-link">Our Mission</router-link>
-          <router-link to="/prayers" class="nav-link">Prayers</router-link>
+          <router-link to="/prayer-guide" class="nav-link"
+            >Prayer Guide</router-link
+          >
         </nav>
         <button
           class="hamburger-btn"
