@@ -133,7 +133,7 @@ const fetchData = async () => {
     console.error('System Error:', error);
     // Fallback in case both Supabase and Gemini are struggling
     if (!dayData.value)
-      dayData.value = { title: 'Daily Reflection', season: 'Ordinary Time' };
+      dayData.value = { title: 'Daily Reflection', season: '' };
     aiResponse.value = {
       virtue: 'Patience',
       reflection:
