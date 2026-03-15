@@ -66,8 +66,6 @@ import ContentCard from '../components/ContentCard.vue';
 <style lang="scss" scoped>
 @use '../scss/variables' as *;
 
-$spirit-purple: #8e44ad;
-
 .content-grid {
   display: grid;
   gap: 2.5rem;
@@ -76,8 +74,12 @@ $spirit-purple: #8e44ad;
   section {
     padding: 1.5rem;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(
+      160deg,
+      rgba($light-gray, 0.09),
+      rgba($white, 0.01)
+    );
+    border: 1px solid rgba($yellow, 0.1);
 
     // Entrance Animation
     opacity: 0;
@@ -97,7 +99,6 @@ $spirit-purple: #8e44ad;
     h2 {
       font-family: 'New York', 'Georgia', serif;
       font-size: 1.3rem;
-      color: $spirit-purple;
       margin-bottom: 1rem;
     }
 
@@ -137,7 +138,6 @@ $spirit-purple: #8e44ad;
   strong {
     display: block;
     font-family: 'New York', 'Georgia', serif;
-    color: $spirit-purple;
     font-size: 1.4rem;
     letter-spacing: 1px;
   }
