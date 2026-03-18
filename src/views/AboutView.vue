@@ -46,10 +46,6 @@ import ContentCard from '../components/ContentCard.vue';
             your heart on what truly matters.
           </li>
           <li>
-            <strong>Share the Light:</strong> Use the share button to send a
-            reflection to a friend who might need a word of hope.
-          </li>
-          <li>
             <strong>Live the Virtue:</strong> Take on the "Faith in Action"
             challenge as a concrete way to live your faith.
           </li>
