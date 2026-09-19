@@ -23,7 +23,7 @@ export const handler = async (event, context) => {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     // The prompt logic moved from HomeView.vue
     const prompt = `
