@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { createClient } from '@supabase/supabase-js';
-import ContentCard from '../components/ContentCard.vue';
+import { currentFeast } from '../liturgicalSeason';
 
 // --- State Management ---
 const dayData = ref(null);
@@ -51,6 +51,7 @@ const currentSeason = computed(() => {
  */
 const applyData = (data) => {
   dayData.value = { title: data.feast, season: data.season };
+  currentFeast.value = data.feast;
   aiResponse.value = {
     virtue: data.virtue,
     reflection: data.reflection,
@@ -253,6 +254,7 @@ const fetchData = async () => {
     if (!dayData.value) {
       const fallback = getFallbackSeason(new Date());
       dayData.value = { title: 'Daily Reflection', season: fallback.name };
+      currentFeast.value = '';
       litColor.value = fallback.color;
     }
     aiResponse.value = {
@@ -281,226 +283,541 @@ onMounted(() => {
       <p>Loading today's grace...</p>
     </div>
 
-    <ContentCard v-else :border-color="litColor">
-      <div class="spiritual-content">
-        <header class="daily-header">
-          <div class="meta-row">
-            <span class="date">{{ formattedDate }}</span>
-            <span class="separator">•</span>
-            <span class="season" :style="{ color: litColor }">{{
-              currentSeason.label
-            }}</span>
-          </div>
-          <h1 class="feast-title">{{ dayData?.title }}</h1>
-        </header>
-
-        <div class="content-block scripture-box">
-          <p class="scripture-text">"{{ aiResponse.scripture }}"</p>
+    <main v-else class="dashboard">
+      <section class="panel primary-focus featured-panel">
+        <div class="scripture-card">
+          <h4 class="label">Featured Daily Scripture</h4>
+          <blockquote>"{{ aiResponse.scripture }}"</blockquote>
           <cite>— {{ aiResponse.verse_ref }}</cite>
         </div>
 
-        <hr class="divider" />
-
-        <div class="content-block reflection-box">
-          <h2>Spiritual Reflection</h2>
+        <div class="reflection-container">
+          <h3>Spiritual Reflection</h3>
           <p class="reflection-text">{{ aiResponse.reflection }}</p>
         </div>
+      </section>
 
-        <div v-if="aiResponse.prayer" class="content-block prayer-box">
-          <h2>Daily Prayer</h2>
+      <section class="panel side-panel context-panel">
+        <div class="context-topline">
+          <div v-if="currentFeast" class="feast-content panel-section">
+            <h4>Saint / Feast</h4>
+            <p>{{ currentFeast }}</p>
+          </div>
+        </div>
+
+        <div class="panel-section virtue-section">
+          <h4>Today's Virtue</h4>
+          <div class="lit-color-row">
+            <p class="virtue-content" :style="{ color: litColor }">
+              {{ aiResponse.virtue }}
+            </p>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h4>Daily Prayer</h4>
           <p class="prayer-text">{{ aiResponse.prayer }}</p>
         </div>
 
-        <div v-if="aiResponse.action" class="content-block action-box">
-          <h2>Faith in Action</h2>
+        <div class="panel-section">
+          <h4>Faith in Action</h4>
           <p class="action-text">{{ aiResponse.action }}</p>
         </div>
 
-        <div class="daily-virtue">
-          <h2>Today's Virtue</h2>
-          <span class="virtue-content" :style="{ color: litColor }">{{
-            aiResponse.virtue
-          }}</span>
-        </div>
-      </div>
-    </ContentCard>
+      </section>
+    </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../scss/variables' as *;
+@use '../scss/mixins' as *;
 
-h2 {
+.home-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.dashboard {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  min-height: 0;
+
+  .view-switcher {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.65rem 1.1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: transparent;
+      color: $color-text-secondary;
+      font: 600 0.85rem $font-family-sans;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+      &:hover,
+      &.active {
+        border-color: rgba($color-accent-gold, 0.35);
+        background: rgba($color-accent-gold, 0.1);
+        color: $color-accent-gold-light;
+      }
+    }
+  }
+
+  .panel {
+    @include frosted-glass;
+    border-radius: $border-radius-card;
+      padding: 1.5rem;
+      display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+
+    &.primary-focus {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.25rem 2rem;
+      border-color: rgba($color-accent-gold, 0.24);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28), 0 0 36px rgba($color-accent-gold, 0.06);
+
+      .scripture-card {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem 2rem;
+        border: 1px solid rgba($color-accent-gold, 0.2);
+        border-radius: 24px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba($color-accent-gold, 0.1),
+          rgba(255, 255, 255, 0.025) 65%
+        );
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 20px rgba($color-accent-gold, 0.05);
+
+        &::before {
+          content: '“';
+          display: block;
+          height: 1.5rem;
+          margin-top: 0.25rem;
+          color: $color-accent-gold;
+          font-family: $font-family-serif;
+          font-size: 5rem;
+          line-height: 1;
+          opacity: 0.45;
+        }
+
+        .scripture-meta {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0.5rem 0.9rem;
+          margin-bottom: 1rem;
+          color: rgba($color-text-secondary, 0.65);
+          font-size: 0.65rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+
+          span + span::before {
+            content: '·';
+            margin-right: 0.9rem;
+            color: rgba($color-accent-gold, 0.55);
+          }
+        }
+
+        .label {
+          margin-top: 0.25rem;
+          margin-bottom: 1.25rem;
+        }
+
+        blockquote {
+          max-width: 30ch;
+          margin: 0 auto 1.25rem;
+          font-family: $font-family-serif;
+          font-size: clamp(1.75rem, 4vw, 3.5rem);
+          font-weight: 500;
+          line-height: 1.35;
+          color: $color-text-primary;
+          font-style: italic;
+          text-wrap: balance;
+        }
+
+        cite {
+          display: block;
+          font-size: 0.9rem;
+          color: $color-accent-gold;
+          font-weight: 600;
+          letter-spacing: 0.75px;
+          text-transform: uppercase;
+        }
+      }
+
+      .reflection-container {
+        flex: 0 0 auto;
+        margin-top: 1.25rem;
+        padding-right: 0.5rem;
+
+        h3 {
+          font-family: $font-family-serif;
+          font-size: 1.2rem;
+          color: $color-accent-gold;
+          margin-bottom: 0.75rem;
+        }
+
+        .reflection-text {
+          font-size: 0.98rem;
+          line-height: 1.65;
+          color: $color-text-secondary;
+        }
+      }
+    }
+
+    &.side-panel {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+      border-color: rgba(255, 255, 255, 0.075);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+      overflow-y: auto;
+      @include custom-scrollbar;
+
+      &.reflection-panel {
+        grid-column: 1;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      &.context-panel {
+        grid-column: 2;
+        width: 100%;
+
+        .context-topline {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1.25rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .context-date {
+          color: $color-text-secondary;
+          font-size: 0.72rem;
+        }
+
+        .feast-content {
+          margin-bottom: 0;
+
+          h4 {
+            color: $color-accent-gold;
+          }
+
+          p {
+            margin: 0;
+            color: $color-text-secondary;
+            font-family: $font-family-sans;
+            font-size: 0.92rem;
+            font-style: normal;
+            line-height: 1.5;
+          }
+        }
+
+        .feast-content + .virtue-section {
+          margin-top: 0;
+        }
+
+        .feast-label {
+          color: $color-accent-gold;
+          font-size: 0.58rem;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+        }
+
+        .feast-name {
+          color: $color-text-primary;
+          font-family: $font-family-serif;
+          font-size: 0.9rem;
+          line-height: 1.1;
+        }
+
+        .panel-date {
+          margin-bottom: 1.25rem;
+          padding-bottom: 1.1rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .date-value {
+          color: $color-text-secondary;
+          font-family: $font-family-sans;
+          font-size: 0.82rem;
+          letter-spacing: 0.01em;
+        }
+      }
+
+      &.reflection-panel .reflection-container {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+        @include custom-scrollbar;
+
+        h3 {
+          font-family: $font-family-serif;
+          font-size: 1.5rem;
+          color: $color-accent-gold-light;
+          margin-bottom: 1rem;
+        }
+
+        .reflection-text {
+          font-size: 1.05rem;
+          line-height: 1.75;
+          color: $color-text-secondary;
+        }
+      }
+
+      .panel-section {
+        margin-bottom: 1.5rem;
+
+        h4 {
+          color: rgba($color-accent-gold, 0.75);
+          font-size: 0.68rem;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+h4 {
   font-size: 0.75rem;
-  color: $light-gray;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
+  letter-spacing: 1.5px;
+  color: $color-accent-gold;
+  margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
-:deep(.card) {
-  padding-top: 2.2rem;
+.side-panel {
+  p {
+    font-size: 0.92rem;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+  }
+
+  .context-season {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+
+    .season-icon {
+      margin-right: 0.4rem;
+    }
+  }
+
+  .context-feast,
+  .feast-line {
+    font-size: 1rem;
+  }
+
+  .virtue-section {
+    padding: 1rem 0 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    h4 {
+      margin-bottom: 0.6rem;
+      color: rgba($color-text-secondary, 0.75);
+      font-size: 0.68rem;
+    }
+  }
+
+  .lit-color-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    .lit-color-swatch {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .virtue-content {
+      font-family: $font-family-serif;
+      font-size: 1.65rem;
+      line-height: 1.15;
+      margin: 0;
+    }
+  }
+
+  .prayer-text {
+    font-style: italic;
+  }
+
+  .action-text {
+    font-weight: 500;
+  }
+}
+
+.right-panel {
+  .action-bar {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+
+    .action-btn {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: $color-text-primary;
+      font-family: $font-family-sans;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: $color-accent-gold;
+        color: $color-accent-gold-light;
+      }
+
+      &.saved {
+        background: rgba($color-accent-gold, 0.2);
+        border-color: rgba($color-accent-gold, 0.6);
+        color: $color-accent-gold-light;
+      }
+    }
+  }
 }
 
 .loading-state {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
-  margin-top: 5rem;
   text-align: center;
+  gap: 1rem;
+
   .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.05);
+    border: 4px solid rgba(255, 255, 255, 0.1);
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border-left-color: $charcoal;
+    border-left-color: $color-accent-gold;
     animation: spin 1s linear infinite;
     display: inline-block;
-    margin-bottom: 1rem;
   }
+
   p {
     font-style: italic;
-    color: $light-gray;
+    color: $color-text-secondary;
   }
 }
 
-.daily-header {
-  text-align: center;
-  margin-bottom: 1rem;
+@media (max-width: 1100px) {
+  .dashboard {
+    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+    gap: 1rem;
 
-  .meta-row {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #999;
-    margin-bottom: 0.5rem;
+    .panel {
+      padding: 1.25rem;
+    }
+
+    &.primary-focus {
+      padding: 1.5rem;
+
+      .scripture-card {
+        padding: 2rem 1.5rem;
+      }
+
+      blockquote {
+        font-size: clamp(1.6rem, 4vw, 2.75rem);
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .home-view,
+  .dashboard {
+    min-height: auto;
+  }
+
+  .dashboard {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-  }
+    flex-direction: column;
+    gap: 1rem;
+    overflow: visible;
 
-  .feast-title {
-    font-family: 'New York', 'Georgia', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #444;
-    margin: 0;
-    line-height: 1.3;
-  }
-}
-
-.divider {
-  border: 0;
-  border-top: 1px solid #f2f2f2;
-  margin: 2rem 0;
-}
-
-.spiritual-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.content-block {
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-
-  &.scripture-box {
-    animation-delay: 0.4s;
-    text-align: center;
-
-    h2 {
-      margin-bottom: 2.5rem;
+    .panel,
+    &.primary-focus {
+      width: 100%;
+      padding: 1.25rem;
     }
 
-    .scripture-text {
-      font-family: 'New York', 'Georgia', serif;
-      font-style: italic;
-      font-size: 2.2rem;
-      line-height: 1.4;
-      margin-bottom: 1rem;
+    .scripture-card {
+      padding: 1.75rem 1rem;
     }
-    cite {
-      display: block;
-      font-weight: 500;
-      font-size: 1rem;
-      color: $light-gray;
-      margin-top: 0.5rem;
+
+    blockquote {
+      font-size: clamp(1.55rem, 8vw, 2.4rem);
     }
-  }
 
-  &.reflection-box {
-    animation-delay: 0.5s;
-  }
-
-  .reflection-text {
-    line-height: 1.8;
-
-    font-size: 1.2rem;
-  }
-
-  &.prayer-box {
-    animation-delay: 0.6s;
-    .prayer-text {
-      font-style: italic;
-      font-size: 1.15rem;
-      color: $light-gray;
+    .context-panel,
+    .reflection-panel {
+      width: 100%;
     }
-  }
 
-  &.action-box {
-    animation-delay: 0.7s;
-    .action-text {
-      font-weight: 500;
-      font-size: 1.1rem;
+    .panel.primary-focus .reflection-container {
+      overflow: visible;
     }
   }
 }
 
-.daily-virtue {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards 0.7s;
+@media (max-width: 480px) {
+  .dashboard {
+    .panel,
+    &.primary-focus {
+      padding: 1rem;
+    }
 
-  .virtue-content {
-    display: block;
-    font-family: 'New York', 'Georgia', serif;
-    font-size: 2rem;
-    margin-top: 0.5rem;
-  }
-}
+    .scripture-card {
+      padding: 1.5rem 0.75rem;
+    }
 
-@media (min-width: 768px) {
-  .feast-title {
-    font-size: 1.8rem;
-  }
-  .content-block.scripture-box .scripture-text {
-    font-size: 3rem;
+    blockquote {
+      max-width: 100%;
+      font-size: 1.65rem;
+    }
   }
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 </style>

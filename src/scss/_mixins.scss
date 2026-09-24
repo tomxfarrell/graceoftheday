@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+@mixin frosted-glass($bg-opacity: 0.05, $blur: 12px, $border-opacity: 0.1) {
+  background: rgba(255, 255, 255, $bg-opacity);
+  backdrop-filter: blur($blur) saturate(180%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  border-radius: 28px;
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.18);
+}
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    &:hover {
+      background: $color-accent-gold;
+    }
+  }
+}
