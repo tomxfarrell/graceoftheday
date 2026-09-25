@@ -16,10 +16,13 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       <div class="header-container">
         <router-link to="/" class="brand-link">
           <AppLogo class="logo" />
-          <h1 class="app-title">Grace of the Day</h1>
+          <div class="title-group">
+            <h1 class="app-title">Grace of the Day</h1>
+            <span class="app-tagline">Daily Catholic Reflection</span>
+          </div>
         </router-link>
         <div class="header-details">
-          <div class="date-time-badge">{{ formattedDate }}</div>
+          <div class="date-time-badge">Today is {{ formattedDate }}</div>
         </div>
       </div>
     </header>
@@ -60,13 +63,17 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     padding: 0 1.5rem;
     border: 0;
     border-radius: 22px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.02)
+    );
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
 
     .header-container {
       width: 100%;
-      max-width: $container-max-width;
+      // max-width: $container-max-width;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -160,12 +167,30 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         height: 40px;
       }
 
+      .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
       .app-title {
         font-family: $font-family-serif;
         font-size: 1.5rem;
+        line-height: 1.1;
         color: $color-accent-gold-light;
         letter-spacing: 1px;
         margin: 0;
+      }
+
+      .app-tagline {
+        color: $color-accent-gold-light;
+        font-family: $font-family-sans;
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.6;
+        margin-left: 0.1rem;
       }
     }
   }
@@ -182,12 +207,13 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   .app-footer {
     height: $footer-height;
     flex-shrink: 0;
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
-    padding: 0.5rem 1rem 0;
+    padding: 0.8rem 1rem 0;
 
     .motto {
       font-family: $font-family-serif;
@@ -213,22 +239,27 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         font-size: 1.2rem;
       }
 
-       .date-time-badge {
-         display: none;
-       }
+      .app-tagline {
+        font-size: 0.56rem;
+        letter-spacing: 0.08em;
+      }
 
-       .feast-badge {
-         max-width: none;
-       }
+      .date-time-badge {
+        display: none;
+      }
 
-       .feast-name {
-         font-size: 0.8rem;
-       }
+      .feast-badge {
+        max-width: none;
+      }
 
-       .season-badge {
-         font-size: 0.75rem;
-         padding: 0.4rem 0.7rem;
-       }
+      .feast-name {
+        font-size: 0.8rem;
+      }
+
+      .season-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.7rem;
+      }
     }
   }
 }

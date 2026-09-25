@@ -14,7 +14,6 @@ const aiResponse = ref({
   action: '',
 });
 const loading = ref(true);
-const litColor = ref('#808080');
 
 // --- Configuration ---
 // These are loaded from .env file for local dev, and from Netlify environment variables in production
@@ -61,15 +60,6 @@ const applyData = (data) => {
     action: data.action,
   };
 
-  const colorMap = {
-    purple: '#8e44ad',
-    violet: '#8e44ad',
-    white: '#f1c40f',
-    red: '#c0392b',
-    green: '#27ae60',
-    rose: '#f9a9c4',
-  };
-  litColor.value = colorMap[data.color?.toLowerCase()] || '#808080';
 };
 
 /**
@@ -100,20 +90,12 @@ const getEaster = (year) => {
  * This provides a graceful fallback if the API fails, ensuring the UI still
  * reflects the correct season.
  * @param {Date} date The current date.
- * @returns {{name: string, color: string}} The season name and color.
+ * @returns {{name: string}} The season name.
  */
 const getFallbackSeason = (date) => {
   const today = new Date(date);
   today.setUTCHours(0, 0, 0, 0);
   const year = today.getUTCFullYear();
-
-  const colorMap = {
-    purple: '#8e44ad',
-    white: '#f1c40f',
-    red: '#c0392b',
-    green: '#27ae60',
-    rose: '#f9a9c4',
-  };
 
   // --- Key Liturgical Dates ---
   const easter = getEaster(year);
@@ -162,31 +144,31 @@ const getFallbackSeason = (date) => {
   // --- Season Determination ---
   if (today >= firstSundayOfAdvent && today < christmas) {
     if (today.getTime() === gaudeteSunday.getTime())
-      return { name: 'Gaudete Sunday', color: colorMap.rose };
-    return { name: 'Advent', color: colorMap.purple };
+      return { name: 'Gaudete Sunday' };
+    return { name: 'Advent' };
   }
   if (
     (today.getUTCMonth() === 11 && today.getUTCDate() >= 25) ||
     (today.getUTCMonth() === 0 && today <= baptismOfTheLord)
   ) {
-    return { name: 'Christmas', color: colorMap.white };
+    return { name: 'Christmas' };
   }
   if (today >= ashWednesday && today < easter) {
     if (today.getTime() === laetareSunday.getTime())
-      return { name: 'Laetare Sunday', color: colorMap.rose };
+      return { name: 'Laetare Sunday' };
     if (today.getTime() === palmSunday.getTime())
-      return { name: 'Palm Sunday', color: colorMap.red };
+      return { name: 'Palm Sunday' };
     if (today >= goodFriday && today < easter)
-      return { name: 'Triduum', color: colorMap.red };
-    return { name: 'Lent', color: colorMap.purple };
+      return { name: 'Triduum' };
+    return { name: 'Lent' };
   }
   if (today >= easter && today <= pentecost) {
     if (today.getTime() === pentecost.getTime())
-      return { name: 'Pentecost', color: colorMap.red };
-    return { name: 'Easter', color: colorMap.white };
+      return { name: 'Pentecost' };
+    return { name: 'Easter' };
   }
 
-  return { name: 'Ordinary Time', color: colorMap.green };
+  return { name: 'Ordinary Time' };
 };
 
 /**
@@ -255,7 +237,6 @@ const fetchData = async () => {
       const fallback = getFallbackSeason(new Date());
       dayData.value = { title: 'Daily Reflection', season: fallback.name };
       currentFeast.value = '';
-      litColor.value = fallback.color;
     }
     aiResponse.value = {
       virtue: 'Patience',
@@ -308,7 +289,7 @@ onMounted(() => {
         <div class="panel-section virtue-section">
           <h4>Today's Virtue</h4>
           <div class="lit-color-row">
-            <p class="virtue-content" :style="{ color: litColor }">
+            <p class="virtue-content">
               {{ aiResponse.virtue }}
             </p>
           </div>
@@ -660,8 +641,9 @@ h4 {
       box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.1);
     }
 
-    .virtue-content {
-      font-family: $font-family-serif;
+  .virtue-content {
+    color: $color-accent-gold-light;
+    font-family: $font-family-serif;
       font-size: 1.65rem;
       line-height: 1.15;
       margin: 0;
