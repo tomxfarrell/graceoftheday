@@ -1,0 +1,1633 @@
+{
+ "url": "http://localhost:4317/",
+ "at": "2026-10-28T15:27:23.075Z",
+ "allow": [
+  "headline-lines",
+  "hero-words",
+  "statement-length",
+  "few-pictures",
+  "first-action"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.32,
+    0.23,
+    0.16,
+    0.14
+   ],
+   "motion": {
+    "elements": 58,
+    "css": 41,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2936,
+     "screens": 3.3,
+     "words": 224,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "chars": 228,
+     "lines": 5,
+     "size": 67.4,
+     "vw": 4.7,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.87,
+     "top": 161,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "lines": 5,
+     "size": 67.4,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+      "words": 39,
+      "chars": 228,
+      "lines": 5,
+      "size": 67.4,
+      "vw": 4.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 161,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus Christ, through the intercession of Your Apostles Simon and Jude, strengthen our faith and grant us the courage to be faithful witnesses of Your love, especially to those in greatest need. ",
+      "words": 34,
+      "chars": 205,
+      "lines": 8,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.35,
+      "top": 1274,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Fidelity",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.47,
+      "top": 1978,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "A new scripture, reflection and prayer every morning.",
+      "words": 8,
+      "chars": 53,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.35,
+      "top": 2641,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 8,
+     "over2Lines": 1,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 8,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.66,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.34,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      48,
+      67,
+      139
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 16
+     },
+     "measureChars": 68,
+     "max": {
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "text": "Fidelity"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#faf9f7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.23,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.82
+      },
+      {
+       "color": "#6e6e73",
+       "share": 0.15
+      },
+      {
+       "color": "#7d5f27",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 2936,
+    "margins": {
+     "left": 96,
+     "right": 119
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 89,
+      "height": 2449,
+      "words": 198,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“You",
+       "size": 67,
+       "tag": "h1"
+      },
+      "left": 96,
+      "right": 105,
+      "textLeft": 96,
+      "textRight": 105,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2538,
+      "height": 398,
+      "words": 22,
+      "media": 0,
+      "middle": 197,
+      "heading": {
+       "text": "A new scripture, reflection and prayer every morni",
+       "size": 48,
+       "tag": "p"
+      },
+      "left": 96,
+      "right": 409,
+      "textLeft": 96,
+      "textRight": 409,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with th",
+      "size": 67,
+      "top": 161,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 96,
+      "n": 8
+     },
+     {
+      "x": 524,
+      "n": 5
+     },
+     {
+      "x": 182,
+      "n": 3
+     },
+     {
+      "x": 377,
+      "n": 2
+     },
+     {
+      "x": 482,
+      "n": 2
+     },
+     {
+      "x": 826,
+      "n": 2
+     },
+     {
+      "x": 1109,
+      "n": 2
+     },
+     {
+      "x": 154,
+      "n": 1
+     },
+     {
+      "x": 219,
+      "n": 1
+     },
+     {
+      "x": 239,
+      "n": 1
+     },
+     {
+      "x": 305,
+      "n": 1
+     },
+     {
+      "x": 332,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 46,
+    "bodySize": 24,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.21,
+    "voidBox": {
+     "x": 420,
+     "y": 480,
+     "w": 900,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.42,
+    0.26,
+    0.18
+   ],
+   "motion": {
+    "elements": 54,
+    "css": 41,
+    "transitions": 13,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2511,
+     "screens": 2.5,
+     "words": 224,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "chars": 228,
+     "lines": 5,
+     "size": 37.8,
+     "vw": 4.9,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.91,
+     "top": 109,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "lines": 5,
+     "size": 37.8,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+      "words": 39,
+      "chars": 228,
+      "lines": 5,
+      "size": 37.8,
+      "vw": 4.9,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 109,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 522,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1010,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus Christ, through the intercession of Your Apostles Simon and Jude, strengthen our faith and grant us the courage to be faithful witnesses of Your love, especially to those in greatest need. ",
+      "words": 34,
+      "chars": 205,
+      "lines": 8,
+      "size": 37.8,
+      "vw": 4.9,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 1060,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Today's Virtue",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1582,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Fidelity",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 85.4,
+      "vw": 11.1,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1632,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1958,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Reach out to someone facing a difficult or seemingly hopeless situation today with a kind word, prayer, or practical assistance.",
+      "words": 20,
+      "chars": 128,
+      "lines": 3,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 2007,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.47,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 2173,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "A new scripture, reflection and prayer every morning.",
+      "words": 8,
+      "chars": 53,
+      "lines": 2,
+      "size": 37.8,
+      "vw": 4.9,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 2236,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 8,
+     "over2Lines": 1,
+     "statements": 5,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.66,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.34,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      38,
+      85
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 14.8
+     },
+     "measureChars": 58,
+     "max": {
+      "size": 85.4,
+      "vw": 11.1,
+      "font": "Cormorant Garamond",
+      "text": "Fidelity"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f2f0eb",
+     "bodyBgHsl": {
+      "h": 43,
+      "s": 0.21,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.82
+      },
+      {
+       "color": "#66625b",
+       "share": 0.15
+      },
+      {
+       "color": "#7d5f27",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 69,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2511,
+    "margins": {
+     "left": 35,
+     "right": 49
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 69,
+      "height": 2040,
+      "words": 200,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“You",
+       "size": 38,
+       "tag": "h1"
+      },
+      "left": 35,
+      "right": 38,
+      "textLeft": 35,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2109,
+      "height": 402,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A new scripture, reflection and prayer every morni",
+       "size": 38,
+       "tag": "p"
+      },
+      "left": 35,
+      "right": 334,
+      "textLeft": 35,
+      "textRight": 334,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with th",
+      "size": 38,
+      "top": 109,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 13
+     },
+     {
+      "x": 83,
+      "n": 3
+     },
+     {
+      "x": 192,
+      "n": 2
+     },
+     {
+      "x": 251,
+      "n": 2
+     },
+     {
+      "x": 269,
+      "n": 2
+     },
+     {
+      "x": 377,
+      "n": 2
+     },
+     {
+      "x": 444,
+      "n": 2
+     },
+     {
+      "x": 603,
+      "n": 2
+     },
+     {
+      "x": 693,
+      "n": 2
+     },
+     {
+      "x": 67,
+      "n": 1
+     },
+     {
+      "x": 103,
+      "n": 1
+     },
+     {
+      "x": 115,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 47,
+    "bodySize": 24,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.49,
+    0.66,
+    0.42,
+    0.46
+   ],
+   "motion": {
+    "elements": 54,
+    "css": 41,
+    "transitions": 13,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2936,
+     "screens": 3.5,
+     "words": 224,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "chars": 228,
+     "lines": 8,
+     "size": 34,
+     "vw": 8.7,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 109,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "lines": 8,
+     "size": 34,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+      "words": 39,
+      "chars": 228,
+      "lines": 8,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 109,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 615,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1372,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus Christ, through the intercession of Your Apostles Simon and Jude, strengthen our faith and grant us the courage to be faithful witnesses of Your love, especially to those in greatest need. ",
+      "words": 34,
+      "chars": 205,
+      "lines": 8,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1422,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Today's Virtue",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1926,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Fidelity",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1976,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Stand firm in the apostolic faith and offer hope to the hopeless.",
+      "words": 12,
+      "chars": 65,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Jost",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2064,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2280,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Reach out to someone facing a difficult or seemingly hopeless situation today with a kind word, prayer, or practical assistance.",
+      "words": 20,
+      "chars": 128,
+      "lines": 5,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2330,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.47,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2562,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "A new scripture, reflection and prayer every morning.",
+      "words": 8,
+      "chars": 53,
+      "lines": 3,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 2628,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 8,
+     "over2Lines": 1,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.66,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.34,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      34,
+      36,
+      64
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 16
+     },
+     "measureChars": 29,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "text": "Fidelity"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#faf9f7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.23,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.82
+      },
+      {
+       "color": "#6e6e73",
+       "share": 0.15
+      },
+      {
+       "color": "#7d5f27",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 69,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2936,
+    "margins": {
+     "left": 20,
+     "right": 25
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 69,
+      "height": 2429,
+      "words": 200,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“You",
+       "size": 34,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 25,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2498,
+      "height": 437,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A new scripture, reflection and prayer every morni",
+       "size": 36,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 74,
+      "textLeft": 20,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with th",
+      "size": 34,
+      "top": 109,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 16
+     },
+     {
+      "x": 240,
+      "n": 5
+     },
+     {
+      "x": 63,
+      "n": 3
+     },
+     {
+      "x": 77,
+      "n": 3
+     },
+     {
+      "x": 198,
+      "n": 3
+     },
+     {
+      "x": 126,
+      "n": 2
+     },
+     {
+      "x": 162,
+      "n": 2
+     },
+     {
+      "x": 173,
+      "n": 2
+     },
+     {
+      "x": 227,
+      "n": 2
+     },
+     {
+      "x": 269,
+      "n": 2
+     },
+     {
+      "x": 291,
+      "n": 2
+     },
+     {
+      "x": 95,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 47,
+    "bodySize": 24,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #faf9f7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 96px on the left, 119px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "ragged-edges",
+   "width": 1440,
+   "message": "Left-aligned text starts at 12 different lines (96px, 524px, 182px, 377px, 482px, 826px, 1109px); the three most used hold only 35% of it.",
+   "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "empty-screens",
+   "width": 1440,
+   "message": "2 of 4 desktop screens are almost empty ground (under 20% of the screen holds text, a picture or a colour field): screens 3, 4.",
+   "fix": "An empty screen is a rest only once per page. Elsewhere it means the section is underbuilt: set its content larger, give it the full information, put it on a colour field, or cut it."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/desktop-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/desktop-page-01.jpg"
+   ],
+   "film": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/desktop-film-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/tablet-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/mobile-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/after/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

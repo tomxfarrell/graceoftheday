@@ -1,65 +1,76 @@
 @use 'reset';
 @use 'variables' as *;
+@use 'mixins' as *;
 @use 'typography';
 
-* {
-  box-sizing: border-box;
+// The page behind the header is the scripture chapter's navy; each chapter sets its own ground
+:root {
+  --ground: #{$color-navy};
+  --ink: #{$color-ivory};
+  --ink-soft: #{$color-navy-ink-soft};
+  --highlight: #{$color-accent-gold};
+  --accent: #{$color-accent-gold};
+  color-scheme: light;
 }
 
 html,
 body {
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overscroll-behavior-y: auto;
+  min-height: 100svh;
+  overflow-x: clip;
   font-family: $font-family-sans;
-  background: linear-gradient(
-    135deg,
-    $color-bg-gradient-start,
-    $color-bg-gradient-end
-  );
-  color: $color-text-primary;
+  font-size: 100%;
+  background: var(--ground);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-// Ambient Glow Effects (Replacing Three.js)
-.ambient-glow {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-
-  &.glow-gold {
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-      circle,
-      $color-glass-glow 0%,
-      rgba(0, 0, 0, 0) 70%
-    );
-  }
-
-  &.glow-purple {
-    bottom: -15%;
-    right: -5%;
-    background: radial-gradient(
-      circle,
-      rgba(76, 29, 149, 0.4) 0%,
-      rgba(0, 0, 0, 0) 70%
-    );
-  }
+body {
+  text-rendering: optimizeLegibility;
 }
 
 a {
   font-weight: 500;
-  color: $color-accent-gold;
-  text-decoration: inherit;
+  color: $color-accent-gold-dark;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-accent-gold-light;
+    color: var(--ink);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--highlight, #{$color-accent-gold-dark});
+  outline-offset: 3px;
+}
+
+::selection {
+  background: $color-accent-gold;
+  color: $color-text-primary;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Entrances: set by the v-reveal directive, so content stays visible without script
+.reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    opacity 1.1s $ease-out var(--reveal-delay, 0ms),
+    transform 1.1s $ease-out var(--reveal-delay, 0ms);
+
+  &.is-revealed {
+    opacity: 1;
+    transform: none;
   }
 }
 

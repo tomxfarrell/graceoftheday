@@ -1,0 +1,1701 @@
+{
+ "url": "http://localhost:4317/",
+ "at": "2026-10-28T01:48:24.310Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.38,
+    0.32,
+    0.59,
+    0.34
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 2,
+    "transitions": 16,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3082,
+     "screens": 3.4,
+     "words": 253,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "chars": 46,
+     "lines": 2,
+     "size": 69.3,
+     "vw": 4.8,
+     "font": "Cormorant Garamond",
+     "weight": 600,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.52,
+     "top": 348,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "lines": 2,
+     "size": 69.3,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "words": 8,
+      "chars": 46,
+      "lines": 2,
+      "size": 69.3,
+      "vw": 4.8,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 348,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 238,
+      "lines": 10,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.18,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 373,
+      "tag": "blockquote",
+      "kind": "statement"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 1196,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 219.2,
+      "vw": 15.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1842,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 2394,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 2394,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 131.2,
+      "vw": 9.1,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2764,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 10,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.59,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.41,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      18,
+      24,
+      26,
+      28,
+      42,
+      69,
+      131,
+      219
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 24,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.9
+     },
+     "measureChars": 45,
+     "max": {
+      "size": 219.2,
+      "vw": 15.2,
+      "font": "Cormorant Garamond",
+      "text": "Hope"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2f5a3f",
+       "top": 133,
+       "hsl": {
+        "h": 142,
+        "s": 0.31,
+        "l": 0.27
+       }
+      },
+      {
+       "color": "#182132",
+       "top": 1673,
+       "hsl": {
+        "h": 219,
+        "s": 0.35,
+        "l": 0.15
+       }
+      },
+      {
+       "color": "#111827",
+       "top": 2613,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f1f5f9",
+       "share": 0.52
+      },
+      {
+       "color": "#f6f3ec",
+       "share": 0.2
+      },
+      {
+       "color": "#cbd5e1",
+       "share": 0.2
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.05
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#c9a96e",
+      "hsl": {
+       "h": 39,
+       "s": 0.46,
+       "l": 0.61
+      },
+      "fg": "#111827"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Share today's verse"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 99,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 101,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "inter"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3082,
+    "margins": {
+     "left": 64,
+     "right": 84
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 101,
+      "height": 2512,
+      "words": 217,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+       "size": 69,
+       "tag": "h1"
+      },
+      "left": 64,
+      "right": 125,
+      "textLeft": 64,
+      "textRight": 125,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2613,
+      "height": 469,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ad Maiorem Dei Gloriam",
+       "size": 131,
+       "tag": "p"
+      },
+      "left": 64,
+      "right": 333,
+      "textLeft": 64,
+      "textRight": 333,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "size": 69,
+      "top": 348,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 64,
+      "n": 6
+     },
+     {
+      "x": 756,
+      "n": 2
+     },
+     {
+      "x": 549,
+      "n": 1
+     },
+     {
+      "x": 930,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 26,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.2,
+    "voidBox": {
+     "x": 0,
+     "y": 120,
+     "w": 1440,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.63,
+    0.56,
+    0.39
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 2,
+    "transitions": 16,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2792,
+     "screens": 2.7,
+     "words": 253,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "chars": 46,
+     "lines": 2,
+     "size": 44.4,
+     "vw": 5.8,
+     "font": "Cormorant Garamond",
+     "weight": 600,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.91,
+     "top": 109,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "lines": 2,
+     "size": 44.4,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "words": 8,
+      "chars": 46,
+      "lines": 2,
+      "size": 44.4,
+      "vw": 5.8,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 109,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 238,
+      "lines": 5,
+      "size": 34.7,
+      "vw": 4.5,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.18,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 554,
+      "tag": "blockquote",
+      "kind": "statement"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 34.7,
+      "vw": 4.5,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1128,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 131.8,
+      "vw": 17.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1636,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 34.7,
+      "vw": 4.5,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 2000,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 34.7,
+      "vw": 4.5,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 2275,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 77.4,
+      "vw": 10.1,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2523,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 5,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.59,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.41,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      18,
+      24,
+      28,
+      35,
+      44,
+      77,
+      132
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.2
+     },
+     "measureChars": 45,
+     "max": {
+      "size": 131.8,
+      "vw": 17.2,
+      "font": "Cormorant Garamond",
+      "text": "Hope"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2f5a3f",
+       "top": 370,
+       "hsl": {
+        "h": 142,
+        "s": 0.31,
+        "l": 0.27
+       }
+      },
+      {
+       "color": "#182132",
+       "top": 1515,
+       "hsl": {
+        "h": 219,
+        "s": 0.35,
+        "l": 0.15
+       }
+      },
+      {
+       "color": "#111827",
+       "top": 2422,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f1f5f9",
+       "share": 0.52
+      },
+      {
+       "color": "#f6f3ec",
+       "share": 0.2
+      },
+      {
+       "color": "#cbd5e1",
+       "share": 0.2
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.05
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#c9a96e",
+      "hsl": {
+       "h": 39,
+       "s": 0.46,
+       "l": 0.61
+      },
+      "fg": "#111827"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Share today's verse"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 99,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 85,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "inter"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2792,
+    "margins": {
+     "left": 35,
+     "right": 55
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 85,
+      "height": 2338,
+      "words": 217,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+       "size": 44,
+       "tag": "h1"
+      },
+      "left": 35,
+      "right": 63,
+      "textLeft": 35,
+      "textRight": 63,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2422,
+      "height": 370,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ad Maiorem Dei Gloriam",
+       "size": 77,
+       "tag": "p"
+      },
+      "left": 35,
+      "right": 118,
+      "textLeft": 35,
+      "textRight": 118,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "size": 44,
+      "top": 109,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 9
+     },
+     {
+      "x": 61,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.69,
+    0.6,
+    0.64,
+    0.47
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 2,
+    "transitions": 16,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3108,
+     "screens": 3.7,
+     "words": 253,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "chars": 46,
+     "lines": 2,
+     "size": 34,
+     "vw": 8.7,
+     "font": "Cormorant Garamond",
+     "weight": 600,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 109,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+     "words": 8,
+     "lines": 2,
+     "size": 34,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Grace of the Day",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": 0.01,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 20,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "words": 8,
+      "chars": 46,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 109,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Tuesday, October 27, 2026. Read today's scripture, then carry one virtue, one prayer and one small act into the day.",
+      "words": 20,
+      "chars": 116,
+      "lines": 4,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Inter",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 205,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 238,
+      "lines": 10,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.18,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 528,
+      "tag": "blockquote",
+      "kind": "statement"
+     },
+     {
+      "text": "33 days until Advent",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1084,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1324,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Today's Virtue",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1830,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 82.7,
+      "vw": 21.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1887,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Trusting in God's quiet growth",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Inter",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2006,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2199,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Cormorant Garamond",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2548,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 2822,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 12,
+     "maxLines": 10,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.59,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.41,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      18,
+      24,
+      28,
+      32,
+      34,
+      48,
+      83
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.2
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 82.7,
+      "vw": 21.2,
+      "font": "Cormorant Garamond",
+      "text": "Hope"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2f5a3f",
+       "top": 384,
+       "hsl": {
+        "h": 142,
+        "s": 0.31,
+        "l": 0.27
+       }
+      },
+      {
+       "color": "#182132",
+       "top": 1766,
+       "hsl": {
+        "h": 219,
+        "s": 0.35,
+        "l": 0.15
+       }
+      },
+      {
+       "color": "#111827",
+       "top": 2721,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f1f5f9",
+       "share": 0.53
+      },
+      {
+       "color": "#f6f3ec",
+       "share": 0.21
+      },
+      {
+       "color": "#cbd5e1",
+       "share": 0.2
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.05
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#c9a96e",
+      "hsl": {
+       "h": 39,
+       "s": 0.46,
+       "l": 0.61
+      },
+      "fg": "#111827"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Share today's verse"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 99,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 85,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "inter"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 3108,
+    "margins": {
+     "left": 20,
+     "right": 25
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 85,
+      "height": 2636,
+      "words": 217,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+       "size": 34,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 25,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2721,
+      "height": 387,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ad Maiorem Dei Gloriam",
+       "size": 48,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 49,
+      "textLeft": 20,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Tuesday of the Thirtieth Week in Ordinary Time",
+      "size": 34,
+      "top": 109,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 9
+     },
+     {
+      "x": 44,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"“Jesus said, 'What is the Kingdom of God like? T\" → 10 lines (50 words, 42px, a paragraph set above 36px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f6f3ec, text #f5ead3).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (14, 16, 18, 24, 26, 28, 42, 69, 131, 219).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 64px on the left, 84px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"“Jesus said, 'What is the Kingdom of God like? T\" → 5 lines (50 words, 34.7px, a paragraph set above 32px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"“Jesus said, 'What is the Kingdom of God like? T\" → 10 lines (50 words, 32px, a paragraph set above 24px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/desktop-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/tablet-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/mobile-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/raw/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

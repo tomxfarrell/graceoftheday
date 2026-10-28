@@ -1,7 +1,18 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
-import { createClient } from '@supabase/supabase-js';
-import { currentFeast } from '../liturgicalSeason';
+import { ref, onMounted, onBeforeUnmount, computed, nextTick, watch } from 'vue';
+import { supabase, dateKey, dateFromKey } from '../supabase';
+import { liturgicalField } from '../liturgicalColors';
+import { currentFeast, liturgicalSeason, todaysVerse } from '../liturgicalSeason';
+import { getEaster } from '../liturgicalCalendar';
+import { prefersReducedMotion } from '../reveal';
+
+// Today when the address is the home page; a past day at /day/YYYY-MM-DD
+const props = defineProps({
+  date: { type: String, default: '' },
+});
+
+const viewDate = computed(() => (props.date ? dateFromKey(props.date) : new Date()));
+const isToday = computed(() => dateKey(viewDate.value) === dateKey(new Date()));
 
 // --- State Management ---
 const dayData = ref(null);
@@ -15,32 +26,118 @@ const aiResponse = ref({
 });
 const loading = ref(true);
 
-// --- Configuration ---
-// These are loaded from .env file for local dev, and from Netlify environment variables in production
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// The chapters, in reading order, with the ground and ink the page takes in each
+const CHAPTERS = [
+  { id: 'scripture', label: 'Scripture' },
+  { id: 'reflection', label: 'Spiritual Reflection' },
+  { id: 'prayer', label: 'Daily Prayer' },
+  { id: 'virtue', label: "Today's Virtue" },
+  { id: 'action', label: 'Faith in Action' },
+];
+
+const INK = '#1d1d1f';
+const IVORY = '#f5f0e6';
+
+// --- Helpers ---
+
+const stripQuotes = (text = '') => text.trim().replace(/^["“'‘]+|["”'’]+$/g, '');
 
 // --- Computed Properties ---
 const formattedDate = computed(() => {
-  return new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(
-    new Date()
-  );
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  }).format(viewDate.value);
 });
 
-const currentSeason = computed(() => {
-  if (!dayData.value) return { icon: '⛪', label: 'Liturgical Year' };
-  const icons = {
-    Lent: '💜',
-    Easter: '🌅',
-    Advent: '🕯️',
-    Christmas: '🌟',
-    'Ordinary Time': '🌿',
-  };
-  return {
-    icon: icons[dayData.value.season] || '⛪',
-    label: dayData.value.season,
-  };
+const season = computed(
+  () => dayData.value?.season || getFallbackSeason(viewDate.value).name
+);
+
+const liturgical = computed(() => liturgicalField(dayData.value?.color, season.value));
+
+// The liturgical day named beside the reflection: the feast or weekday title when
+// there is one, otherwise the season (as on the error fallback)
+const dayName = computed(() => {
+  const title = dayData.value?.title;
+  return title && title !== 'Daily Reflection' ? title : season.value;
+});
+
+// Long verses step down so the whole passage fits on the first screen
+const verseSize = computed(() => {
+  const length = aiResponse.value.scripture.length;
+  if (length <= 140) return 'verse--short';
+  if (length <= 320) return 'verse--medium';
+  return 'verse--long';
+});
+
+// "Hope: Trusting in God's quiet growth" becomes a large word and its line
+const virtueParts = computed(() => {
+  const [word, ...rest] = (aiResponse.value.virtue || '').split(':');
+  return { word: word.trim(), rest: rest.join(':').trim() };
+});
+
+// --- Each chapter keeps its own ground; only the index marks follow the reader ---
+const activeChapter = ref('scripture');
+
+// The marks sit over every chapter, so they take the ink of the one being read
+const indexInk = computed(
+  () => (['scripture', 'prayer', 'footer'].includes(activeChapter.value) ? IVORY : INK)
+);
+
+// A chapter is active while it crosses the middle of the screen
+let chapterObserver;
+const watchChapters = () => {
+  chapterObserver?.disconnect();
+  chapterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) activeChapter.value = entry.target.dataset.chapter;
+      });
+    },
+    { rootMargin: '-45% 0px -45% 0px' }
+  );
+  document.querySelectorAll('[data-chapter]').forEach((el) => chapterObserver.observe(el));
+};
+
+const goToChapter = (id) => {
+  document
+    .querySelector(`[data-chapter="${id}"]`)
+    ?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+};
+
+onBeforeUnmount(() => {
+  chapterObserver?.disconnect();
+});
+
+// --- The verse arrives one line at a time ---
+const verseEl = ref(null);
+const verseLines = ref(0);
+const verseState = ref(''); // '' | 'is-measuring' | 'is-arriving'
+const verseWords = computed(() => `“${aiResponse.value.scripture}”`.split(/\s+/));
+
+// Group the words into the lines the browser wrapped them onto, then let each line rise in turn
+const arriveVerse = async () => {
+  if (prefersReducedMotion()) return;
+  verseState.value = 'is-measuring';
+  await nextTick();
+  await document.fonts?.ready;
+  const tops = [];
+  verseEl.value?.querySelectorAll('.verse-word').forEach((word) => {
+    let line = tops.indexOf(word.offsetTop);
+    if (line === -1) line = tops.push(word.offsetTop) - 1;
+    word.style.setProperty('--line', line);
+  });
+  verseLines.value = tops.length;
+  verseState.value = 'is-arriving';
+};
+
+watch(loading, async (isLoading) => {
+  if (isLoading) return;
+  arriveVerse();
+  await nextTick();
+  watchChapters();
 });
 
 // --- Methods ---
@@ -49,44 +146,25 @@ const currentSeason = computed(() => {
  * Helper to map the JSON data to our reactive state
  */
 const applyData = (data) => {
-  dayData.value = { title: data.feast, season: data.season };
+  dayData.value = { title: data.feast, season: data.season, color: data.color };
   currentFeast.value = data.feast;
+  liturgicalSeason.value = data.season;
   aiResponse.value = {
     virtue: data.virtue,
     reflection: data.reflection,
-    scripture: data.scripture,
+    scripture: stripQuotes(data.scripture),
     verse_ref: data.verse_ref,
     prayer: data.prayer,
     action: data.action,
   };
-
+  todaysVerse.value = {
+    text: aiResponse.value.scripture,
+    reference: data.verse_ref,
+  };
 };
 
 /**
- * Calculates the date of Easter for a given year using the Meeus/Jones/Butcher algorithm.
- * @param {number} year The year to calculate Easter for.
- * @returns {Date} The date of Easter.
- */
-const getEaster = (year) => {
-  const a = year % 19;
-  const b = Math.floor(year / 100);
-  const c = year % 100;
-  const d = Math.floor(b / 4);
-  const e = b % 4;
-  const f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4);
-  const k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const month = Math.floor((h + l - 7 * m + 114) / 31); // month is 1-based
-  const day = ((h + l - 7 * m + 114) % 31) + 1;
-  return new Date(Date.UTC(year, month - 1, day));
-};
-
-/**
- * Determine the liturgical season and color client-side for fallback purposes.
+ * Determine the liturgical season client-side for fallback purposes.
  * This provides a graceful fallback if the API fails, ensuring the UI still
  * reflects the correct season.
  * @param {Date} date The current date.
@@ -176,11 +254,10 @@ const getFallbackSeason = (date) => {
  */
 const fetchData = async () => {
   // Use YYYY-MM-DD for a reliable database key
-  const now = new Date();
-  const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  const todayKey = dateKey(viewDate.value);
 
   try {
-    // 1. Check if the community has already generated today's data
+    // 1. Check if the community has already generated this day's data
     const { data: existing, error: fetchError } = await supabase
       .from('daily_reflections')
       .select('*')
@@ -202,6 +279,9 @@ const fetchData = async () => {
       loading.value = false;
       return;
     }
+
+    // A past day is only ever read from the cache; readings are generated for today alone
+    if (!isToday.value) throw new Error(`No reading was kept for ${todayKey}.`);
 
     // 2. If no data exists, this user is the "Providential Visitor"
     console.log('First visitor of the day! Generating new reflection...');
@@ -234,18 +314,23 @@ const fetchData = async () => {
     console.error('System Error:', error);
     // Fallback in case both Supabase and Gemini are struggling
     if (!dayData.value) {
-      const fallback = getFallbackSeason(new Date());
+      const fallback = getFallbackSeason(viewDate.value);
       dayData.value = { title: 'Daily Reflection', season: fallback.name };
       currentFeast.value = '';
     }
     aiResponse.value = {
       virtue: 'Patience',
-      reflection:
-        'We are momentarily unable to retrieve the daily reading. Please check back in a moment.',
+      reflection: isToday.value
+        ? 'We are momentarily unable to retrieve the daily reading. Please check back in a moment.'
+        : 'No reading was kept for this day. You can find today\'s reading on the home page.',
       scripture: 'Be still, and know that I am God.',
       verse_ref: 'Psalm 46:10',
       prayer: 'Lord, grant us peace.',
       action: 'Take a moment of silence.',
+    };
+    todaysVerse.value = {
+      text: aiResponse.value.scripture,
+      reference: aiResponse.value.verse_ref,
     };
   } finally {
     loading.value = false;
@@ -258,55 +343,112 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="home-view">
-    <div v-if="loading" class="loading-state">
-      <div class="spinner"></div>
-      <p>Loading today's grace...</p>
-    </div>
+  <div class="home-view" :class="{ 'is-loading': loading }">
+    <!-- Scripture: the first chapter, and the one large moment -->
+    <section
+      class="chapter chapter--navy chapter--scripture"
+      :class="verseState"
+      :style="{ '--lines': verseLines }"
+      data-chapter="scripture"
+      aria-labelledby="day-title"
+    >
+      <div class="chapter-inner">
+        <!-- The chapter's name, like the others: what this is, and for which day -->
+        <h1 id="day-title" class="scripture-title" v-reveal>
+          {{ isToday ? "Today's Scripture" : 'Scripture' }}<span class="scripture-date">{{
+            formattedDate
+          }}</span>
+        </h1>
+        <template v-if="!loading">
+          <!-- Each word is a span so the verse can arrive one line at a time -->
+          <blockquote ref="verseEl" class="verse" :class="verseSize">
+            <template v-for="(word, i) in verseWords" :key="i"
+              ><span class="verse-word">{{ word }}</span>{{ ' ' }}</template
+            >
+          </blockquote>
+          <p class="verse-ref">
+            <cite>{{ aiResponse.verse_ref }}</cite>
+          </p>
+        </template>
+        <p v-else class="verse-waiting" role="status">Preparing today's reading…</p>
+      </div>
+    </section>
 
-    <main v-else class="dashboard">
-      <section class="panel primary-focus featured-panel">
-        <div class="scripture-card">
-          <h4 class="label">Featured Daily Scripture</h4>
-          <blockquote>"{{ aiResponse.scripture }}"</blockquote>
-          <cite>— {{ aiResponse.verse_ref }}</cite>
-        </div>
-
-        <div class="reflection-container">
-          <h3>Spiritual Reflection</h3>
-          <p class="reflection-text">{{ aiResponse.reflection }}</p>
-        </div>
-      </section>
-
-      <section class="panel side-panel context-panel">
-        <div class="context-topline">
-          <div v-if="currentFeast" class="feast-content panel-section">
-            <h4>Saint / Feast</h4>
-            <p>{{ currentFeast }}</p>
-          </div>
-        </div>
-
-        <div class="panel-section virtue-section">
-          <h4>Today's Virtue</h4>
-          <div class="lit-color-row">
-            <p class="virtue-content">
-              {{ aiResponse.virtue }}
+    <template v-if="!loading">
+      <section
+        class="chapter chapter--stone"
+        data-chapter="reflection"
+        aria-labelledby="reflection-title"
+      >
+        <div class="chapter-inner row">
+          <div class="row-label">
+            <h2 id="reflection-title" v-reveal>Spiritual Reflection</h2>
+            <p class="row-note" v-reveal="1">
+              <span
+                class="season-dot"
+                :style="{ background: liturgical.field }"
+                :title="`Vestments: ${liturgical.name}`"
+              ></span
+              >{{ dayName }}
             </p>
           </div>
+          <p class="reflection-text" v-reveal="2">{{ aiResponse.reflection }}</p>
         </div>
-
-        <div class="panel-section">
-          <h4>Daily Prayer</h4>
-          <p class="prayer-text">{{ aiResponse.prayer }}</p>
-        </div>
-
-        <div class="panel-section">
-          <h4>Faith in Action</h4>
-          <p class="action-text">{{ aiResponse.action }}</p>
-        </div>
-
       </section>
-    </main>
+
+      <section
+        class="chapter chapter--navy"
+        data-chapter="prayer"
+        aria-labelledby="prayer-title"
+      >
+        <div class="chapter-inner row">
+          <div class="row-label">
+            <h2 id="prayer-title" v-reveal>Daily Prayer</h2>
+          </div>
+          <p class="prayer-text" v-reveal="1">{{ aiResponse.prayer }}</p>
+        </div>
+      </section>
+
+      <section class="chapter chapter--white" data-chapter="virtue" aria-labelledby="virtue-title">
+        <div class="chapter-inner row">
+          <div class="row-label">
+            <h2 id="virtue-title" v-reveal>Today's Virtue</h2>
+          </div>
+          <div>
+            <p class="virtue-word" v-reveal="1">{{ virtueParts.word }}</p>
+            <p v-if="virtueParts.rest" class="virtue-rest" v-reveal="2">{{ virtueParts.rest }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="chapter chapter--stone"
+        data-chapter="action"
+        aria-labelledby="action-title"
+      >
+        <div class="chapter-inner row">
+          <div class="row-label">
+            <h2 id="action-title" v-reveal>Faith in Action</h2>
+          </div>
+          <p class="action-text" v-reveal="1">{{ aiResponse.action }}</p>
+        </div>
+      </section>
+
+      <!-- Where you are in the morning's reading; each mark jumps to its chapter -->
+      <nav class="chapter-index" :style="{ '--index-ink': indexInk }" aria-label="Chapters">
+        <button
+          v-for="chapter in CHAPTERS"
+          :key="chapter.id"
+          type="button"
+          class="chapter-mark"
+          :class="{ 'is-active': chapter.id === activeChapter }"
+          :aria-label="chapter.label"
+          :title="chapter.label"
+          :aria-current="chapter.id === activeChapter ? 'true' : undefined"
+          @click="goToChapter(chapter.id)"
+        ></button>
+      </nav>
+    </template>
   </div>
 </template>
 
@@ -314,492 +456,310 @@ onMounted(() => {
 @use '../scss/variables' as *;
 @use '../scss/mixins' as *;
 
-.home-view {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
+// --- Chapters: each part of the morning in its own space, on its own colour ---
+.chapter {
+  --highlight: #{$color-accent-gold-dark};
+  --ink-soft: #{$color-stone-ink-soft};
+  padding: clamp(4.5rem, 8vw, 7rem) $page-margin;
+  color: var(--chapter-ink, #{$color-text-primary});
 }
 
-.dashboard {
-  flex: 1;
+// The brand's navy holds the two quiet moments: the page opens on it before dawn,
+// and the prayer returns to it, so the page alternates dark and light
+.chapter--navy {
+  --chapter-ink: #{$color-ivory};
+  --ink-soft: #{$color-navy-ink-soft};
+  --highlight: #{$color-accent-gold};
+  background: $color-navy;
+}
+
+.chapter--scripture {
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  padding-bottom: clamp(6rem, 11vw, 9rem);
+}
+
+.chapter--stone {
+  background: $color-stone;
+}
+
+.chapter--white {
+  background: $color-canvas;
+}
+
+.chapter-inner {
+  width: 100%;
+  max-width: $content-max;
+  margin-inline: auto;
+}
+
+// Every chapter after the first: its name in the narrow column, its words in the wide one
+.row {
+  @include page-grid;
+  align-items: baseline;
+}
+
+.row-label h2 {
+  font-size: $step-label;
+  line-height: 1.15;
+}
+
+.row-note {
+  margin-top: 0.75rem;
+  text-wrap: balance;
+  font-size: $step-body;
+  color: var(--ink-soft);
+}
+
+// The day's vestment colour, a small mark that stays with the feast's first word
+.season-dot {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  vertical-align: 0.05em;
+}
+
+// --- Scripture ---
+// Named like every other chapter: plain sans, sentence case, the date in the softer ink
+.scripture-title {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  font-family: $font-family-sans;
+  font-size: $step-lead;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.scripture-date {
+  font-weight: 400;
+  color: var(--ink-soft);
+
+  &::before {
+    content: ' · ';
+  }
+
+  // On a narrow phone the date takes its own line instead of trailing a dot
+  @media (max-width: 559px) {
+    display: block;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.verse {
+  font-family: $font-family-serif;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  // Avoids a lonely last word while still filling the width
+  text-wrap: pretty;
+
+  // The opening quotation mark hangs into the margin, so the letters align with the
+  // title above; only where the margin is wide enough to hold it
+  @media (min-width: 640px) {
+    text-indent: -0.42em;
+  }
+
+  &.verse--short {
+    font-size: clamp(2.75rem, 0.5rem + 6.5vw, 7.5rem);
+  }
+
+  &.verse--medium {
+    font-size: clamp(2.125rem, 0.25rem + 4.4vw, 4.5rem);
+  }
+
+  &.verse--long {
+    font-size: clamp(1.875rem, 0.5rem + 3vw, 3.5rem);
+  }
+}
+
+// The reference as on the original site: gold, italic capitals behind a quotation dash
+.verse-ref {
+  margin-top: 2rem;
+
+  cite {
+    color: var(--highlight, #{$color-accent-gold-dark});
+    font-size: 0.9375rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    &::before {
+      content: '\2015\00a0';
+    }
+  }
+}
+
+.verse-waiting {
+  font-size: $step-lead;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+// The verse arrives one line at a time (only when motion is allowed)
+.verse-word {
+  display: inline-block;
+  // Each word is its own box, so it must not inherit the verse's hanging indent
+  text-indent: 0;
+}
+
+.chapter--scripture.is-measuring {
+  .verse-word,
+  .verse-ref {
+    opacity: 0;
+  }
+}
+
+.chapter--scripture.is-arriving {
+  .verse-word {
+    animation: line-rise 1.2s $ease-out both;
+    animation-delay: calc(var(--line, 0) * 150ms + 150ms);
+  }
+
+  .verse-ref {
+    animation: line-rise 1.2s $ease-out both;
+    animation-delay: calc(var(--lines, 0) * 150ms + 300ms);
+  }
+}
+
+@keyframes line-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+}
+
+// --- Reflection: set for reading, at a generous size ---
+.reflection-text {
+  max-width: 34em;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+// --- Prayer: in the serif, on the colour of the day ---
+.prayer-text {
+  max-width: 24ch;
+  font-family: $font-family-serif;
+  font-size: $step-heading;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+// --- Virtue: one word in gold ---
+.virtue-word {
+  font-family: $font-family-serif;
+  font-size: clamp(4rem, 1.5rem + 8vw, 10rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--highlight);
+  overflow-wrap: anywhere;
+}
+
+// As the word comes into view, light passes across it from left to right, like a shine
+// on gilt, and passes again every six seconds. The page's one gradient, confined to the
+// pass: between passes the word rests in solid gold, and keeps it wherever the motion or
+// the text clip isn't available.
+@supports ((-webkit-background-clip: text) or (background-clip: text)) { // taste-skill-ignore: the gilt shine
+  @include motion-ok {
+    .virtue-word.is-revealed {
+      background: linear-gradient(105deg, #{$color-accent-gold-dark} 0 42%, #{$color-gilt-shine} 50%, #{$color-accent-gold-dark} 58% 100%); // taste-skill-ignore: the gilt shine
+      background-size: 300% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text; // taste-skill-ignore: the gilt shine
+      background-clip: text; // taste-skill-ignore: the gilt shine
+      color: transparent;
+      animation: gilt-shine 6s ease-in-out 0.7s infinite both;
+    }
+  }
+}
+
+// The pass takes the first 1.8 seconds of each six; the word rests in gold for the rest.
+// The pass begins and ends on solid gold, so the loop restarts without a visible jump.
+@keyframes gilt-shine {
+  0% {
+    background-position: 100% 0;
+  }
+
+  30%,
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.virtue-rest {
+  margin-top: 1.5rem;
+  max-width: 26em;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+// --- Action: one plain instruction for the day, set large ---
+.action-text {
+  max-width: 24em;
+  font-size: $step-label;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+// --- The chapter index: a column of marks at the right edge, desktop only ---
+.chapter-index {
+  display: none;
+
+  @include wide {
+    position: fixed;
+    top: 50%;
+    right: clamp(1rem, 2vw, 2rem);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transform: translateY(-50%);
+  }
+}
+
+.chapter-mark {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 1.25rem;
-  min-height: 0;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 
-  .view-switcher {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
-    gap: 0.5rem;
-
-    button {
-      padding: 0.65rem 1.1rem;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      background: transparent;
-      color: $color-text-secondary;
-      font: 600 0.85rem $font-family-sans;
-      cursor: pointer;
-      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-
-      &:hover,
-      &.active {
-        border-color: rgba($color-accent-gold, 0.35);
-        background: rgba($color-accent-gold, 0.1);
-        color: $color-accent-gold-light;
-      }
-    }
+  // The mark itself: a short bar that lengthens for the chapter being read
+  &::before {
+    content: '';
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--index-ink);
+    opacity: 0.3;
+    transition:
+      height 0.4s $ease-out,
+      opacity 0.4s ease,
+      background-color 0.4s ease;
   }
 
-  .panel {
-    @include frosted-glass;
-    border-radius: $border-radius-card;
-      padding: 1.5rem;
-      display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    min-height: 0;
+  &.is-active::before {
+    height: 1.5rem;
+    opacity: 1;
+  }
 
-    &.primary-focus {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2.25rem 2rem;
-      border-color: rgba($color-accent-gold, 0.24);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28), 0 0 36px rgba($color-accent-gold, 0.06);
-
-      .scripture-card {
-        position: relative;
-        flex: 1;
-        min-height: 0;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        padding: 2.5rem 2rem;
-        border: 1px solid rgba($color-accent-gold, 0.2);
-        border-radius: 24px;
-        background: radial-gradient(
-          circle at 50% 0%,
-          rgba($color-accent-gold, 0.1),
-          rgba(255, 255, 255, 0.025) 65%
-        );
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 20px rgba($color-accent-gold, 0.05);
-
-        &::before {
-          content: '“';
-          display: block;
-          height: 1.5rem;
-          margin-top: 0.25rem;
-          color: $color-accent-gold;
-          font-family: $font-family-serif;
-          font-size: 5rem;
-          line-height: 1;
-          opacity: 0.45;
-        }
-
-        .scripture-meta {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 0.5rem 0.9rem;
-          margin-bottom: 1rem;
-          color: rgba($color-text-secondary, 0.65);
-          font-size: 0.65rem;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-
-          span + span::before {
-            content: '·';
-            margin-right: 0.9rem;
-            color: rgba($color-accent-gold, 0.55);
-          }
-        }
-
-        .label {
-          margin-top: 0.25rem;
-          margin-bottom: 1.25rem;
-        }
-
-        blockquote {
-          max-width: 30ch;
-          margin: 0 auto 1.25rem;
-          font-family: $font-family-serif;
-          font-size: clamp(1.75rem, 4vw, 3.5rem);
-          font-weight: 500;
-          line-height: 1.35;
-          color: $color-text-primary;
-          font-style: italic;
-          text-wrap: balance;
-        }
-
-        cite {
-          display: block;
-          font-size: 0.9rem;
-          color: $color-accent-gold;
-          font-weight: 600;
-          letter-spacing: 0.75px;
-          text-transform: uppercase;
-        }
-      }
-
-      .reflection-container {
-        flex: 0 0 auto;
-        margin-top: 1.25rem;
-        padding-right: 0.5rem;
-
-        h3 {
-          font-family: $font-family-serif;
-          font-size: 1.2rem;
-          color: $color-accent-gold;
-          margin-bottom: 0.75rem;
-        }
-
-        .reflection-text {
-          font-size: 0.98rem;
-          line-height: 1.65;
-          color: $color-text-secondary;
-        }
-      }
-    }
-
-    &.side-panel {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
-      border-color: rgba(255, 255, 255, 0.075);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
-      overflow-y: auto;
-      @include custom-scrollbar;
-
-      &.reflection-panel {
-        grid-column: 1;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      &.context-panel {
-        grid-column: 2;
-        width: 100%;
-
-        .context-topline {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 1rem;
-          margin-bottom: 1.5rem;
-          padding-bottom: 1.25rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .context-date {
-          color: $color-text-secondary;
-          font-size: 0.72rem;
-        }
-
-        .feast-content {
-          margin-bottom: 0;
-
-          h4 {
-            color: $color-accent-gold;
-          }
-
-          p {
-            margin: 0;
-            color: $color-text-secondary;
-            font-family: $font-family-sans;
-            font-size: 0.92rem;
-            font-style: normal;
-            line-height: 1.5;
-          }
-        }
-
-        .feast-content + .virtue-section {
-          margin-top: 0;
-        }
-
-        .feast-label {
-          color: $color-accent-gold;
-          font-size: 0.58rem;
-          font-weight: 600;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-        }
-
-        .feast-name {
-          color: $color-text-primary;
-          font-family: $font-family-serif;
-          font-size: 0.9rem;
-          line-height: 1.1;
-        }
-
-        .panel-date {
-          margin-bottom: 1.25rem;
-          padding-bottom: 1.1rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .date-value {
-          color: $color-text-secondary;
-          font-family: $font-family-sans;
-          font-size: 0.82rem;
-          letter-spacing: 0.01em;
-        }
-      }
-
-      &.reflection-panel .reflection-container {
-        flex: 1;
-        overflow-y: auto;
-        padding-right: 0.5rem;
-        @include custom-scrollbar;
-
-        h3 {
-          font-family: $font-family-serif;
-          font-size: 1.5rem;
-          color: $color-accent-gold-light;
-          margin-bottom: 1rem;
-        }
-
-        .reflection-text {
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: $color-text-secondary;
-        }
-      }
-
-      .panel-section {
-        margin-bottom: 1.5rem;
-
-        h4 {
-          color: rgba($color-accent-gold, 0.75);
-          font-size: 0.68rem;
-        }
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-    }
+  &:hover::before {
+    opacity: 0.7;
   }
 }
 
-h4 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: $color-accent-gold;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-.side-panel {
-  p {
-    font-size: 0.92rem;
-    color: $color-text-secondary;
-    line-height: 1.5;
-    margin-bottom: 0.35rem;
-  }
-
-  .context-season {
-    font-size: 1.05rem;
-    margin-bottom: 0.75rem;
-
-    .season-icon {
-      margin-right: 0.4rem;
-    }
-  }
-
-  .context-feast,
-  .feast-line {
-    font-size: 1rem;
-  }
-
-  .virtue-section {
-    padding: 1rem 0 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-
-    h4 {
-      margin-bottom: 0.6rem;
-      color: rgba($color-text-secondary, 0.75);
-      font-size: 0.68rem;
-    }
-  }
-
-  .lit-color-row {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    .lit-color-swatch {
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.1);
-    }
-
-  .virtue-content {
-    color: $color-accent-gold-light;
-    font-family: $font-family-serif;
-      font-size: 1.65rem;
-      line-height: 1.15;
-      margin: 0;
-    }
-  }
-
-  .prayer-text {
-    font-style: italic;
-  }
-
-  .action-text {
-    font-weight: 500;
-  }
-}
-
-.right-panel {
-  .action-bar {
-    margin-top: auto;
-    padding-top: 1.25rem;
-    display: flex;
-    gap: 0.75rem;
-
-    .action-btn {
-      flex: 1;
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.08);
-      color: $color-text-primary;
-      font-family: $font-family-sans;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.14);
-        border-color: $color-accent-gold;
-        color: $color-accent-gold-light;
-      }
-
-      &.saved {
-        background: rgba($color-accent-gold, 0.2);
-        border-color: rgba($color-accent-gold, 0.6);
-        color: $color-accent-gold-light;
-      }
-    }
-  }
-}
-
-.loading-state {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
-
-  .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border-left-color: $color-accent-gold;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-  }
-
-  p {
-    font-style: italic;
-    color: $color-text-secondary;
-  }
-}
-
-@media (max-width: 1100px) {
-  .dashboard {
-    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
-    gap: 1rem;
-
-    .panel {
-      padding: 1.25rem;
-    }
-
-    &.primary-focus {
-      padding: 1.5rem;
-
-      .scripture-card {
-        padding: 2rem 1.5rem;
-      }
-
-      blockquote {
-        font-size: clamp(1.6rem, 4vw, 2.75rem);
-      }
-    }
-  }
-}
-
-@media (max-width: 760px) {
-  .home-view,
-  .dashboard {
-    min-height: auto;
-  }
-
-  .dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    overflow: visible;
-
-    .panel,
-    &.primary-focus {
-      width: 100%;
-      padding: 1.25rem;
-    }
-
-    .scripture-card {
-      padding: 1.75rem 1rem;
-    }
-
-    blockquote {
-      font-size: clamp(1.55rem, 8vw, 2.4rem);
-    }
-
-    .context-panel,
-    .reflection-panel {
-      width: 100%;
-    }
-
-    .panel.primary-focus .reflection-container {
-      overflow: visible;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .dashboard {
-    .panel,
-    &.primary-focus {
-      padding: 1rem;
-    }
-
-    .scripture-card {
-      padding: 1.5rem 0.75rem;
-    }
-
-    blockquote {
-      max-width: 100%;
-      font-size: 1.65rem;
-    }
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 </style>

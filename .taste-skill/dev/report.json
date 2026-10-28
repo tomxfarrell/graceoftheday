@@ -1,0 +1,447 @@
+{
+ "url": "http://localhost:5173/",
+ "at": "2026-10-28T16:58:22.028Z",
+ "allow": [
+  "headline-lines",
+  "hero-words",
+  "statement-length",
+  "few-pictures",
+  "first-action",
+  "dev-server",
+  "small-title",
+  "gradient-text"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.41,
+    0.55,
+    0.8,
+    0.69
+   ],
+   "motion": {
+    "elements": 60,
+    "css": 41,
+    "transitions": 19,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3102,
+     "screens": 3.4,
+     "words": 229,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+     "words": 39,
+     "chars": 228,
+     "lines": 5,
+     "size": 67.4,
+     "vw": 4.7,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.87,
+     "top": 253,
+     "tag": "blockquote",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Today's ScriptureWednesday, October 28",
+     "words": 4,
+     "lines": 1,
+     "size": 21,
+     "font": "Jost"
+    },
+    "headings": [
+     {
+      "text": "“You are no longer strangers and sojourners, but you are fellow citizens with the holy ones and members of the household of God, built upon the foundation of the Apostles and prophets, with Christ Jes",
+      "words": 39,
+      "chars": 228,
+      "lines": 5,
+      "size": 67.4,
+      "vw": 4.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 253,
+      "tag": "blockquote",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus Christ, through the intercession of Your Apostles Simon and Jude, strengthen our faith and grant us the courage to be faithful witnesses of Your love, especially to those in greatest need. ",
+      "words": 34,
+      "chars": 205,
+      "lines": 8,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.35,
+      "top": 1397,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Fidelity",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.47,
+      "top": 2101,
+      "gradientText": true,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 8,
+     "over2Lines": 1,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 34,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.67,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.33,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      48,
+      67,
+      139
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 14.8
+     },
+     "measureChars": 68,
+     "max": {
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "text": "Fidelity"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#111827",
+       "top": 89,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#f2f0eb",
+       "top": 831,
+       "hsl": {
+        "h": 43,
+        "s": 0.21,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 1989,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.43
+      },
+      {
+       "color": "#f5f0e6",
+       "share": 0.4
+      },
+      {
+       "color": "#66625b",
+       "share": 0.08
+      },
+      {
+       "color": "#a9afbd",
+       "share": 0.07
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.01
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3102,
+    "margins": {
+     "left": 96,
+     "right": 96
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 89,
+      "height": 2684,
+      "words": 202,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“You",
+       "size": 67,
+       "tag": "span"
+      },
+      "left": 68,
+      "right": 105,
+      "textLeft": 68,
+      "textRight": 105,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2774,
+      "height": 328,
+      "words": 24,
+      "media": 0,
+      "middle": 401,
+      "heading": null,
+      "left": 96,
+      "right": 96,
+      "textLeft": 96,
+      "textRight": 96,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Today's ScriptureWednesday, October 28",
+      "size": 21,
+      "top": 185,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 96,
+      "n": 5
+     },
+     {
+      "x": 524,
+      "n": 4
+     },
+     {
+      "x": 271,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 24,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.24,
+    "voidBox": {
+     "x": 420,
+     "y": 600,
+     "w": 1020,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #f2f0eb, text #f5f0e6).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev/desktop-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev/desktop-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

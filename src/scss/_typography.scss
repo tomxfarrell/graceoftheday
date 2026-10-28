@@ -1,38 +1,19 @@
 @use 'variables' as *;
 
-h1 {
-  font-size: 2.2rem;
-  line-height: 1.1;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
+h1,
 h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
+  font-family: $font-family-sans;
+  font-size: $step-heading;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-p,
-ul {
-  font-size: 1.1em;
-  color: $color-text-primary;
-  margin: 0 0 1.5rem;
-  &.lead {
-    color: $color-text-secondary;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
-  p,
-  ul {
-    font-size: 1.2em;
-  }
+p {
+  max-width: $measure;
+  font-size: $step-body;
+  line-height: 1.47;
+  letter-spacing: -0.01em;
+  color: inherit;
 }

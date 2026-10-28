@@ -1,0 +1,1041 @@
+{
+ "url": "http://localhost:5173/day/2026-10-27",
+ "at": "2026-10-28T16:22:58.948Z",
+ "allow": [
+  "headline-lines",
+  "hero-words",
+  "statement-length",
+  "few-pictures",
+  "first-action",
+  "dev-server",
+  "small-title"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.43,
+    0.54,
+    0.86,
+    0.61
+   ],
+   "motion": {
+    "elements": 70,
+    "css": 52,
+    "transitions": 18,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3001,
+     "screens": 3.3,
+     "words": 218,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+     "words": 50,
+     "chars": 238,
+     "lines": 5,
+     "size": 67.4,
+     "vw": 4.7,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.87,
+     "top": 253,
+     "tag": "blockquote",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "ScriptureTuesday, October 27",
+     "words": 3,
+     "lines": 1,
+     "size": 21,
+     "font": "Jost"
+    },
+    "headings": [
+     {
+      "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 238,
+      "lines": 5,
+      "size": 67.4,
+      "vw": 4.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 253,
+      "tag": "blockquote",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus, plant the seed of Your Kingdom deep within my heart today. Grant me the patience to trust in Your hidden work and the courage to serve You faithfully in small things. Amen.",
+      "words": 34,
+      "chars": 184,
+      "lines": 7,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.35,
+      "top": 1359,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Hope",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.47,
+      "top": 2003,
+      "gradientText": true,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 7,
+     "over2Lines": 1,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 34,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.65,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.35,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      48,
+      67,
+      139
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 14.8
+     },
+     "measureChars": 68,
+     "max": {
+      "size": 139.2,
+      "vw": 9.7,
+      "font": "Cormorant Garamond",
+      "text": "Hope"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#111827",
+       "top": 89,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#f2f0eb",
+       "top": 831,
+       "hsl": {
+        "h": 43,
+        "s": 0.21,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 1891,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.44
+      },
+      {
+       "color": "#f5f0e6",
+       "share": 0.4
+      },
+      {
+       "color": "#a9afbd",
+       "share": 0.07
+      },
+      {
+       "color": "#66625b",
+       "share": 0.06
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3001,
+    "margins": {
+     "left": 96,
+     "right": 113
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 89,
+      "height": 2550,
+      "words": 189,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“Jesus",
+       "size": 67,
+       "tag": "span"
+      },
+      "left": 68,
+      "right": 113,
+      "textLeft": 68,
+      "textRight": 113,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2639,
+      "height": 362,
+      "words": 22,
+      "media": 0,
+      "middle": 197,
+      "heading": null,
+      "left": 96,
+      "right": 641,
+      "textLeft": 96,
+      "textRight": 641,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "ScriptureTuesday, October 27",
+      "size": 21,
+      "top": 185,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 96,
+      "n": 5
+     },
+     {
+      "x": 524,
+      "n": 3
+     },
+     {
+      "x": 199,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 9,
+    "bodySize": 24,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.22,
+    "voidBox": {
+     "x": 240,
+     "y": 660,
+     "w": 1200,
+     "h": 240
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.61,
+    0.85,
+    0.85,
+    0.72
+   ],
+   "motion": {
+    "elements": 64,
+    "css": 52,
+    "transitions": 12,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2947,
+     "screens": 3.5,
+     "words": 219,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+     "words": 50,
+     "chars": 238,
+     "lines": 9,
+     "size": 34,
+     "vw": 8.7,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": -0.015,
+     "leading": 1.12,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 204,
+     "tag": "blockquote",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Scripture Tuesday, October 27",
+     "words": 4,
+     "lines": 2,
+     "size": 21,
+     "font": "Jost"
+    },
+    "headings": [
+     {
+      "text": "“Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 238,
+      "lines": 9,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.015,
+      "leading": 1.12,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 204,
+      "tag": "blockquote",
+      "kind": "heading"
+     },
+     {
+      "text": "Spiritual Reflection",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 788,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Daily Prayer",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1425,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lord Jesus, plant the seed of Your Kingdom deep within my heart today. Grant me the patience to trust in Your hidden work and the courage to serve You faithfully in small things. Amen.",
+      "words": 34,
+      "chars": 184,
+      "lines": 8,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.25,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1475,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Today's Virtue",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1979,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2029,
+      "gradientText": true,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Trusting in God's quiet growth",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Jost",
+      "weight": 400,
+      "tracking": -0.01,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2117,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Faith in Action",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2297,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Perform one small, hidden act of kindness today without seeking recognition, trusting God to build His Kingdom through it.",
+      "words": 19,
+      "chars": 122,
+      "lines": 5,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2346,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Ad Maiorem Dei Gloriam",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": -0.01,
+      "leading": 1.47,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2659,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "A new scripture, reflection and prayer every morning.",
+      "words": 8,
+      "chars": 53,
+      "lines": 2,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Jost",
+      "weight": 500,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 2721,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 9,
+     "over2Lines": 1,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Jost",
+       "share": 0.65,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.35,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      17,
+      21,
+      24,
+      26,
+      34,
+      36,
+      64
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Jost",
+      "size": 24,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 14.8
+     },
+     "measureChars": 29,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Cormorant Garamond",
+      "text": "Hope"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#111827",
+     "bodyBgHsl": {
+      "h": 221,
+      "s": 0.39,
+      "l": 0.11
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#111827",
+       "top": 69,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#f2f0eb",
+       "top": 700,
+       "hsl": {
+        "h": 43,
+        "s": 0.21,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 1907,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d1d1f",
+       "share": 0.44
+      },
+      {
+       "color": "#f5f0e6",
+       "share": 0.4
+      },
+      {
+       "color": "#a9afbd",
+       "share": 0.07
+      },
+      {
+       "color": "#66625b",
+       "share": 0.06
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 69,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "cormorant garamond",
+     "jost"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2947,
+    "margins": {
+     "left": 20,
+     "right": 22
+    },
+    "sections": [
+     {
+      "sel": "main.content-area",
+      "tag": "main",
+      "top": 69,
+      "height": 2518,
+      "words": 187,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "“Jesus",
+       "size": 34,
+       "tag": "span"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.app-footer",
+      "tag": "footer",
+      "top": 2587,
+      "height": 360,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 95,
+      "textLeft": 20,
+      "textRight": 95,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Scripture Tuesday, October 27",
+      "size": 21,
+      "top": 125,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 8
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 24,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "1 gradient-filled text element(s).",
+   "fix": "Solid colour text.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #f2f0eb, text #f5f0e6).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 96px on the left, 113px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"ScriptureTuesday, October 27\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev_day_2026-10-27/desktop-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev_day_2026-10-27/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev_day_2026-10-27/mobile-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/dev_day_2026-10-27/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

@@ -1,0 +1,1325 @@
+{
+ "url": "http://localhost:4317/",
+ "at": "2026-10-28T01:08:32.648Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.88,
+    0.78
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 1,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1245,
+     "screens": 1.4,
+     "words": 215,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "\"Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+     "words": 50,
+     "chars": 239,
+     "lines": 8,
+     "size": 56,
+     "vw": 3.9,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": 0,
+     "leading": 1.35,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0.61,
+     "top": 258,
+     "tag": "blockquote",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Grace of the Day",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "\"Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 239,
+      "lines": 8,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.35,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 258,
+      "tag": "blockquote",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 8,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.7,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.3,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      19,
+      24,
+      26,
+      56
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 15.7,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 120,
+     "max": {
+      "size": 56,
+      "vw": 3.9,
+      "font": "Cormorant Garamond",
+      "text": "\"Jesus said, 'What is the Kingdom of God"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.064,
+     "microSamples": [
+      "Featured Daily Scripture",
+      "Saint / Feast",
+      "Today's Virtue",
+      "Daily Prayer",
+      "Faith in Action"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.24,
+     "smallText": 6
+    },
+    "eyebrows": [
+     {
+      "text": "Featured Daily Scripture",
+      "above": "\"Jesus said, 'What is the Kingdom of God",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 220
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#cbd5e1",
+       "share": 0.58
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.24
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.08
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.06
+      },
+      {
+       "color": "#caaa6d",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 4,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "header.app-header → rgba(0, 0, 0, 0.1) 0px 8px 24px 0px",
+      "section.panel.primary-focus → rgba(0, 0, 0, 0.28) 0px 16px 48px 0px, rgba(201, 169, 110, 0.06) 0px 0px 36px 0p",
+      "div.scripture-card → rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset, rgba(201, 169, 110, 0.05) 0px 6",
+      "section.panel.side-panel → rgba(0, 0, 0, 0.14) 0px 10px 28px 0px"
+     ],
+     "gradients": 3,
+     "scrims": 2,
+     "gradientSamples": [
+      "div.ambient-glow.glow-gold → radial-gradient(circle, rgba(201, 169, 110, 0.12), rgba(0, 0, 0, 0) 70%)",
+      "div.ambient-glow.glow-purple → radial-gradient(circle, rgba(76, 29, 149, 0.4), rgba(0, 0, 0, 0) 70%)",
+      "div.scripture-card → radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.1), rgba(255, 255, 255, 0.024) 65%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "div.context-topline 289px",
+      "div.panel-section.virtue-section 289px"
+     ],
+     "outlinedBoxes": 3,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 3,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 70,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1245,
+    "margins": {
+     "left": 48,
+     "right": 48
+    },
+    "sections": [
+     {
+      "sel": "div.scripture-card",
+      "tag": "div",
+      "top": 147,
+      "height": 798,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "\"Jesus said, 'What is the Kingdom of God like? To ",
+       "size": 56,
+       "tag": "blockquote"
+      },
+      "left": 105,
+      "right": 464,
+      "textLeft": 105,
+      "textRight": 464,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.reflection-container",
+      "tag": "div",
+      "top": 965,
+      "height": 142,
+      "words": 63,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Spiritual Reflection",
+       "size": 19,
+       "tag": "h3"
+      },
+      "left": 65,
+      "right": 436,
+      "textLeft": 65,
+      "textRight": 436,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Grace of the Day",
+      "size": 24,
+      "top": 38,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 65,
+      "n": 2
+     },
+     {
+      "x": 1094,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.06,
+    "voidBox": {
+     "x": 1020,
+     "y": 720,
+     "w": 420,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.91,
+    0.89
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 1,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1138,
+     "screens": 1.1,
+     "words": 209,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "\"Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+     "words": 50,
+     "chars": 239,
+     "lines": 10,
+     "size": 30.7,
+     "vw": 4,
+     "font": "Cormorant Garamond",
+     "weight": 500,
+     "tracking": 0,
+     "leading": 1.35,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0.45,
+     "top": 250,
+     "tag": "blockquote",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Grace of the Day",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "\"Jesus said, 'What is the Kingdom of God like? To what can I compare it? It is like a mustard seed that a man took and planted in the garden. When it was fully grown, it became a large bush and the bi",
+      "words": 50,
+      "chars": 239,
+      "lines": 10,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Cormorant Garamond",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.35,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 250,
+      "tag": "blockquote",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope: Trusting in God's quiet growth",
+      "words": 6,
+      "chars": 36,
+      "lines": 3,
+      "size": 26.4,
+      "vw": 3.4,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.26,
+      "top": 282,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 10,
+     "over2Lines": 1,
+     "statements": 1,
+     "centered": 1,
+     "medianWords": 6,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.72,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.28,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      19,
+      24,
+      26,
+      31
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 15.7,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 52,
+     "max": {
+      "size": 30.7,
+      "vw": 4,
+      "font": "Cormorant Garamond",
+      "text": "\"Jesus said, 'What is the Kingdom of God"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.066,
+     "microSamples": [
+      "Featured Daily Scripture",
+      "Saint / Feast",
+      "Today's Virtue",
+      "Daily Prayer",
+      "Faith in Action"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.25,
+     "smallText": 6
+    },
+    "eyebrows": [
+     {
+      "text": "Featured Daily Scripture",
+      "above": "\"Jesus said, 'What is the Kingdom of God",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 212
+     },
+     {
+      "text": "Today's Virtue",
+      "above": "Hope: Trusting in God's quiet growth",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10.9,
+      "top": 256
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#cbd5e1",
+       "share": 0.6
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.22
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.08
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.07
+      },
+      {
+       "color": "#caaa6d",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 4,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "header.app-header → rgba(0, 0, 0, 0.1) 0px 8px 24px 0px",
+      "section.panel.primary-focus → rgba(0, 0, 0, 0.28) 0px 16px 48px 0px, rgba(201, 169, 110, 0.06) 0px 0px 36px 0p",
+      "div.scripture-card → rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset, rgba(201, 169, 110, 0.05) 0px 6",
+      "section.panel.side-panel → rgba(0, 0, 0, 0.14) 0px 10px 28px 0px"
+     ],
+     "gradients": 3,
+     "scrims": 2,
+     "gradientSamples": [
+      "div.ambient-glow.glow-gold → radial-gradient(circle, rgba(201, 169, 110, 0.12), rgba(0, 0, 0, 0) 70%)",
+      "div.ambient-glow.glow-purple → radial-gradient(circle, rgba(76, 29, 149, 0.4), rgba(0, 0, 0, 0) 70%)",
+      "div.scripture-card → radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.1), rgba(255, 255, 255, 0.024) 65%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 3,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 3,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 70,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1138,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Grace of the Day",
+      "size": 24,
+      "top": 30,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 49,
+      "n": 2
+     },
+     {
+      "x": 533,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.91,
+    0.91,
+    0.91
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 1,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 1939,
+     "screens": 2.3,
+     "words": 209,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Grace of the Day",
+     "words": 4,
+     "chars": 16,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Cormorant Garamond",
+     "weight": 700,
+     "tracking": 0.042,
+     "leading": 1.1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.56,
+     "top": 30,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Grace of the Day",
+     "words": 4,
+     "lines": 1,
+     "size": 24,
+     "font": "Cormorant Garamond"
+    },
+    "headings": [
+     {
+      "text": "Grace of the Day",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Cormorant Garamond",
+      "weight": 700,
+      "tracking": 0.042,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.56,
+      "top": 30,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Hope: Trusting in God's quiet growth",
+      "words": 6,
+      "chars": 36,
+      "lines": 2,
+      "size": 26.4,
+      "vw": 6.8,
+      "font": "Cormorant Garamond",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1476,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 1,
+     "medianWords": 6,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Inter",
+       "share": 0.72,
+       "mono": false
+      },
+      {
+       "family": "Cormorant Garamond",
+       "share": 0.28,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      19,
+      24,
+      26,
+      28
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Inter",
+      "size": 15.7,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 28,
+      "vw": 7.2,
+      "font": "Cormorant Garamond",
+      "text": "\"Jesus said, 'What is the Kingdom of God"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.066,
+     "microSamples": [
+      "Featured Daily Scripture",
+      "Saint / Feast",
+      "Today's Virtue",
+      "Daily Prayer",
+      "Faith in Action"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.25,
+     "smallText": 6
+    },
+    "eyebrows": [
+     {
+      "text": "Today's Virtue",
+      "above": "Hope: Trusting in God's quiet growth",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10.9,
+      "top": 1450
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#cbd5e1",
+       "share": 0.6
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.22
+      },
+      {
+       "color": "#c9a96e",
+       "share": 0.08
+      },
+      {
+       "color": "#f5ead3",
+       "share": 0.07
+      },
+      {
+       "color": "#caaa6d",
+       "share": 0.03
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 4,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "header.app-header → rgba(0, 0, 0, 0.1) 0px 8px 24px 0px",
+      "section.panel.primary-focus → rgba(0, 0, 0, 0.28) 0px 16px 48px 0px, rgba(201, 169, 110, 0.06) 0px 0px 36px 0p",
+      "div.scripture-card → rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset, rgba(201, 169, 110, 0.05) 0px 6",
+      "section.panel.side-panel → rgba(0, 0, 0, 0.14) 0px 10px 28px 0px"
+     ],
+     "gradients": 3,
+     "scrims": 2,
+     "gradientSamples": [
+      "div.ambient-glow.glow-gold → radial-gradient(circle, rgba(201, 169, 110, 0.12), rgba(0, 0, 0, 0) 70%)",
+      "div.ambient-glow.glow-purple → radial-gradient(circle, rgba(76, 29, 149, 0.4), rgba(0, 0, 0, 0) 70%)",
+      "div.scripture-card → radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.1), rgba(255, 255, 255, 0.024) 65%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "div.context-topline 324px",
+      "div.panel-section.virtue-section 324px"
+     ],
+     "outlinedBoxes": 3,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 3,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 70,
+     "floatingPill": true,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 1939,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "section.panel.primary-focus",
+      "tag": "section",
+      "top": 102,
+      "height": 1204,
+      "words": 112,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "\"Jesus said, 'What is the Kingdom of God like? To ",
+       "size": 28,
+       "tag": "blockquote"
+      },
+      "left": 49,
+      "right": 57,
+      "textLeft": 49,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel.side-panel",
+      "tag": "section",
+      "top": 1322,
+      "height": 545,
+      "words": 77,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Hope: Trusting in God's quiet growth",
+       "size": 26,
+       "tag": "p"
+      },
+      "left": 33,
+      "right": 40,
+      "textLeft": 33,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Grace of the Day",
+      "size": 24,
+      "top": 30,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 33,
+      "n": 2
+     },
+     {
+      "x": 49,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"\"Jesus said, 'What is the Kingdom of God like? T\" → 8 lines (50 words, 56px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "hero-words",
+   "width": 1440,
+   "message": "Hero headline is 50 words (\"\"Jesus said, 'What is the Kingdom of God like? To what can I\"). Gallery median is 5.",
+   "fix": "Say the one thing. Move the rest to the supporting line.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Featured Daily Scripture\" above \"\"Jesus said, 'What is the Kingdom of God\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "5 tiny uppercase letter-spaced labels (e.g. \"Featured Daily Scripture\", \"Saint / Feast\", \"Today's Virtue\", \"Daily Prayer\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "3 gradient fill(s): div.ambient-glow.glow-gold → radial-gradient(circle, rgba(201, 169, 110, 0.12), rgba(0, 0, 0, 0) 70%) | div.ambient-glow.glow-purple → radial-gradient(circle, rgba(76, 29, 149, 0.4), rgba(0, 0, 0, 0) 70%) | div.scripture-card → radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.1), rgba(255, 255, 255, 0.024) 65%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "4 box-shadow(s) on elements at rest: header.app-header → rgba(0, 0, 0, 0.1) 0px 8px 24px 0px | section.panel.primary-focus → rgba(0, 0, 0, 0.28) 0px 16px 48px 0px, rgba(201, 169, 110, 0.06) 0px 0px 36px 0p | div.scripture-card → rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset, rgba(201, 169, 110, 0.05) 0px 6",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "2 thin rule(s)/divider line(s): div.context-topline 289px | div.panel-section.virtue-section 289px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "3 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "2 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f5ead3).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (10, 11, 12, 14, 15, 16, 19, 24, 26, 56).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 15.7px.",
+   "fix": "Body copy 16–20px.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "first-action",
+   "width": 1440,
+   "message": "No visible button in the first screen.",
+   "fix": "Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 120 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "6 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "focal-point",
+   "width": 1440,
+   "message": "The first screen has no dominant element: the largest type is 56px (3.9vw) and no single picture holds a third of the viewport.",
+   "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "small-title",
+   "width": 1440,
+   "message": "The h1 is 24px (\"Grace of the Day\").",
+   "fix": "Set the title at display size, or make the large text of the first screen the h1.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 2 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"\"Jesus said, 'What is the Kingdom of God like? T\" → 10 lines (50 words, 30.7px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 768,
+   "message": "Large text lies under another element at some scroll position: \"Grace of the Day\" (screen 1, 75% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "pill-nav",
+   "width": 390,
+   "message": "Floating rounded pill navigation.",
+   "fix": "Use a plain bar: wordmark left, a few links, one action."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/desktop-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/tablet-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/mobile-fold.jpg",
+   "pages": [
+    "/Users/thomasfarrell/Code/grace-of-the-day/.taste-skill/before/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

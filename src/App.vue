@@ -1,43 +1,73 @@
 <script setup>
+import { ref } from 'vue';
 import AppLogo from './components/AppLogo.vue';
+import { todaysVerse } from './liturgicalSeason';
 
 const currentYear = new Date().getFullYear();
-const formattedDate = new Intl.DateTimeFormat('en-US', {
-  dateStyle: 'full',
-}).format(new Date());
+const copied = ref(false);
+
+const shareVerse = async () => {
+  const { text, reference } = todaysVerse.value;
+  const message = text
+    ? `“${text}” ${reference}`
+    : 'Grace of the Day: daily Catholic reflection';
+  const url = window.location.origin;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: 'Grace of the Day', text: message, url });
+      return;
+    }
+    await navigator.clipboard.writeText(`${message}\n${url}`);
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 2400);
+  } catch (error) {
+    if (error.name !== 'AbortError') console.error('Share failed:', error);
+  }
+};
 </script>
 
 <template>
   <div id="app-wrapper">
-    <div class="ambient-glow glow-gold" aria-hidden="true"></div>
-    <div class="ambient-glow glow-purple" aria-hidden="true"></div>
-
     <header class="app-header">
-      <div class="header-container">
+      <div class="header-inner">
         <router-link to="/" class="brand-link">
           <AppLogo class="logo" />
-          <div class="title-group">
-            <h1 class="app-title">Grace of the Day</h1>
+          <span class="title-group">
+            <span class="app-title">Grace of the Day</span>
             <span class="app-tagline">Daily Catholic Reflection</span>
-          </div>
+          </span>
         </router-link>
-        <div class="header-details">
-          <div class="date-time-badge">Today is {{ formattedDate }}</div>
-        </div>
+        <router-link to="/past" class="header-link">Past readings</router-link>
       </div>
     </header>
 
     <main class="content-area">
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component, route }">
         <transition name="fade" mode="out-in">
-          <component :is="Component" />
+          <!-- Keyed by address, so moving between days loads each day afresh -->
+          <component :is="Component" :key="route.fullPath" />
         </transition>
       </router-view>
     </main>
 
-    <footer class="app-footer">
-      <p class="motto">Ad Maiorem Dei Gloriam</p>
-      <p class="copyright">&copy; {{ currentYear }} Grace of the Day</p>
+    <footer class="app-footer" data-chapter="footer">
+      <div class="footer-grid">
+        <p class="motto" v-reveal>Ad Maiorem Dei Gloriam</p>
+        <div class="footer-main">
+          <p class="footer-promise">A new scripture, reflection and prayer every morning.</p>
+          <!-- The third column: what a reader can do next -->
+          <nav class="footer-links" aria-label="More" v-reveal="1">
+            <button type="button" class="footer-link" @click="shareVerse">
+              {{ copied ? 'Copied' : "Share today's verse" }}
+            </button>
+            <router-link to="/past" class="footer-link">Past readings</router-link>
+          </nav>
+          <span class="visually-hidden" role="status">{{ copied ? 'Verse copied to share' : '' }}</span>
+        </div>
+        <!-- The footer's base line, on the page's left edge beneath everything -->
+        <p class="copyright">&copy; {{ currentYear }} Grace of the Day</p>
+      </div>
     </footer>
   </div>
 </template>
@@ -48,219 +78,186 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 
 #app-wrapper {
   position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 1.5rem 2rem;
+  min-height: 100svh;
 
   .app-header {
-    height: $header-height;
-    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    padding: 0.875rem $page-margin;
+
+    @include wide {
+      padding-block: 1.5rem;
+    }
+  }
+
+  // The logo sits on the grid's left edge, above the verse
+  .header-inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
-    border: 0;
-    border-radius: 22px;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.045),
-      rgba(255, 255, 255, 0.02)
-    );
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: $content-max;
+    margin-inline: auto;
+  }
 
-    .header-container {
-      width: 100%;
-      // max-width: $container-max-width;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      min-width: 0;
-      gap: 1rem;
+  // One quiet link on the right: the way back through earlier mornings
+  .header-link {
+    font-size: $step-body;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.router-link-active {
+      color: var(--highlight);
     }
 
-    .date-time-badge,
-    .feast-badge,
-    .season-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.55rem 0.95rem;
-      border: 0;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.035);
-      box-shadow: none;
-      color: $color-text-secondary;
-      font-size: 0.8rem;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.25em;
     }
+  }
 
-    .date-time-badge {
-      gap: 0.45rem;
-      color: $color-text-primary;
-      font-family: $font-family-serif;
-      font-size: 0.95rem;
-    }
+  .brand-link {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+    text-decoration: none;
 
-    .date-prefix {
-      color: $color-text-secondary;
-      font-family: $font-family-sans;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
-    .header-details {
-      min-width: 0;
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .time {
-      display: none;
-    }
-
-    .feast-badge {
-      display: inline-flex;
-      align-items: baseline;
-      min-width: 0;
-      gap: 0.5rem;
-      padding: 0.5rem 0.8rem;
-      border: 0;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.035);
-      color: $color-text-secondary;
-    }
-
-    .feast-label {
+    .logo {
       flex-shrink: 0;
-      color: $color-accent-gold;
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      width: 40px;
+      height: 40px;
     }
 
-    .feast-name {
-      min-width: 0;
-      color: $color-text-primary;
-      font-family: $font-family-serif;
-      font-size: 0.9rem;
-      line-height: 1.1;
-    }
-
-    .season-badge {
-      font-size: 0.85rem;
-    }
-
-    .brand-link {
+    .title-group {
       display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
+      flex-direction: column;
+    }
 
-      .logo {
-        width: 40px;
-        height: 40px;
-      }
+    .app-title {
+      font-family: $font-family-serif;
+      font-size: $step-lead;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
 
-      .title-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.1rem;
-      }
-
-      .app-title {
-        font-family: $font-family-serif;
-        font-size: 1.5rem;
-        line-height: 1.1;
-        color: $color-accent-gold-light;
-        letter-spacing: 1px;
-        margin: 0;
-      }
-
-      .app-tagline {
-        color: $color-accent-gold-light;
-        font-family: $font-family-sans;
-        font-size: 0.6rem;
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        opacity: 0.6;
-        margin-left: 0.1rem;
-      }
+    .app-tagline {
+      color: var(--ink-soft);
+      font-family: $font-family-sans;
+      font-size: $step-small;
+      font-weight: 400;
+      line-height: 1.3;
     }
   }
 
   .content-area {
-    flex: 1;
-    min-height: 0;
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
   }
 
+  // The footer closes the page in the navy it opened with
   .app-footer {
-    height: $footer-height;
-    flex-shrink: 0;
-    margin-top: 1rem;
+    --ink: #{$color-ivory};
+    --ink-soft: #{$color-navy-ink-soft};
+    --highlight: #{$color-accent-gold};
+    padding: clamp(4.5rem, 8vw, 6.5rem) $page-margin 2.5rem;
+    background: $color-navy;
+    color: var(--ink);
+  }
+
+  // The footer is the grid's last row: the motto in the narrow column, the promise in the wide
+  .footer-grid {
+    @include page-grid;
+    align-items: baseline;
+  }
+
+  // The closing promise: what to expect, every morning
+  .footer-promise {
+    max-width: 20ch;
+    font-family: $font-family-sans;
+    font-size: $step-label;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    transform-origin: left bottom;
+
+    @supports (animation-timeline: view()) {
+      @include motion-ok {
+        animation: settle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
+    }
+  }
+
+  // The wide column splits in two: the promise, and the links beside it
+  .footer-main {
+    display: grid;
+    gap: 2rem;
+
+    @include wide {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: clamp(3rem, 6vw, 6rem);
+    }
+  }
+
+  .footer-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    padding: 0.8rem 1rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 
-    .motto {
-      font-family: $font-family-serif;
-      font-style: italic;
-      color: $color-accent-gold;
-      margin: 0;
-    }
+  .footer-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font: 500 #{$step-body}/1.4 $font-family-sans;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
 
-    .copyright {
-      margin: 0;
+    &:hover {
+      color: var(--highlight);
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.25em;
     }
+  }
+
+  .motto {
+    font-family: $font-family-serif;
+    font-size: $step-label;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+    margin-top: clamp(3rem, 6vw, 5rem);
+    font-size: $step-small;
+    color: var(--ink-soft);
   }
 }
 
-@media (max-width: 820px) {
-  #app-wrapper {
-    padding: 1rem;
-
-    .app-header {
-      padding: 0 1rem;
-
-      .app-title {
-        font-size: 1.2rem;
-      }
-
-      .app-tagline {
-        font-size: 0.56rem;
-        letter-spacing: 0.08em;
-      }
-
-      .date-time-badge {
-        display: none;
-      }
-
-      .feast-badge {
-        max-width: none;
-      }
-
-      .feast-name {
-        font-size: 0.8rem;
-      }
-
-      .season-badge {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.7rem;
-      }
-    }
+@keyframes settle {
+  from {
+    opacity: 0.4;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>

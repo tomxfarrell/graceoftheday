@@ -1,24 +1,42 @@
-// Color Palette (Catholic Sacred Elegance)
-$color-bg-gradient-start: #111827; // Deep Marian Navy
-$color-bg-gradient-end: #1e293b;   // Quiet Sacred Slate
-$color-glass-bg: rgba(255, 255, 255, 0.04);
-$color-glass-border: rgba(226, 232, 240, 0.1);
-$color-glass-glow: rgba(201, 169, 110, 0.12); // Muted Gold Tint
+// Built on the Apple DESIGN.md (awesome-design-md) with the Grace of the Day brand:
+// full-bleed tiles that alternate canvas and parchment, one dark tile, one action colour.
 
-$color-text-primary: #f1f5f9;
-$color-text-secondary: #cbd5e1;
-$color-accent-gold: #c9a96e;
-$color-accent-gold-light: #f5ead3;
+// Colour
+$color-canvas: #ffffff; // dominant tile
+$color-parchment: #f5f5f7; // alternate light tile, footer
+$color-ground: $color-canvas;
+$color-navy: #111827; // the scripture chapter, before dawn
+$color-ivory: #f5f0e6; // ink on navy
+$color-navy-ink-soft: #a9afbd;
+$color-stone: #f2f0eb; // the reflection, the action and the footer
+$color-stone-ink-soft: #66625b;
+$color-text-primary: #1d1d1f; // headlines and body on light
+$color-text-secondary: #6e6e73; // captions and secondary copy on light
+$color-on-dark: #ffffff;
+$color-on-dark-muted: #d2d2d7;
+$color-accent-gold: #c9a96e; // the one action colour: button fills
+$color-accent-gold-dark: #7d5f27; // gold for text links on light tiles
+$color-gilt-shine: #e8cf8f; // the light that passes across the virtue word
 
 // Typography
+// Cormorant Garamond for the sacred words and the wordmark; Jost for everything else
 $font-family-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
-$font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+$step-heading: clamp(2.25rem, 1.5rem + 1.8vw, 3rem); // the prayer and the closing promise
+$step-label: 1.625rem; // section names in the grid's narrow column
+$step-lead: 1.3125rem; // 21px tagline and lead
+$step-body: 1.0625rem; // 17px body
+$step-small: 0.875rem; // 14px captions
+// The scripture uses its own display step, sized by the length of the verse (see HomeView).
 
 // Layout & Spacing
-$container-max-width: 1100px;
-$container-padding-x: 2.5rem; // 40px
-$header-height: 70px;
-$footer-height: 40px;
-$border-radius-card: 28px;
+$page-margin: clamp(1.25rem, 4.5vw, 4rem);
+$tile-padding: clamp(4.5rem, 9vw, 7.5rem);
+$text-max: 61.25rem; // 980px
+$content-max: 78rem; // the grid's width on large screens
+$measure: 42rem;
+$wide: 960px;
 
-// Breakpoints
+// Motion
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
