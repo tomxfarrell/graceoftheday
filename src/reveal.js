@@ -15,7 +15,8 @@ const watch = (className, options) =>
         });
       }, options);
 
-const revealObserver = watch('is-revealed', { rootMargin: '0px 0px -10% 0px' });
+// Reveal as soon as any part shows, so content peeking at the fold never sits blank
+const revealObserver = watch('is-revealed', { rootMargin: '0px' });
 
 export const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;

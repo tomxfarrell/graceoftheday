@@ -105,18 +105,10 @@ const shareVerse = async () => {
     font-size: $step-body;
     font-weight: 500;
     color: var(--ink);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    @include quiet-underline;
 
-    &:hover,
     &.router-link-active {
       color: var(--highlight);
-    }
-
-    &:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.25em;
     }
   }
 
@@ -222,16 +214,8 @@ const shareVerse = async () => {
     background: none;
     color: var(--ink);
     font: 500 #{$step-body}/1.4 $font-family-sans;
-    text-decoration: none;
     cursor: pointer;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--highlight);
-      text-decoration: underline;
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.25em;
-    }
+    @include quiet-underline;
   }
 
   .motto {
