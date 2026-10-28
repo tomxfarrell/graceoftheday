@@ -4,6 +4,7 @@ import { supabase, dateKey, dateFromKey } from '../supabase';
 import { liturgicalField } from '../liturgicalColors';
 import { currentFeast, liturgicalSeason, todaysVerse } from '../liturgicalSeason';
 import { getEaster } from '../liturgicalCalendar';
+import AppLogo from '../components/AppLogo.vue';
 import { prefersReducedMotion } from '../reveal';
 
 // Today when the address is the home page; a past day at /day/YYYY-MM-DD
@@ -111,32 +112,14 @@ onBeforeUnmount(() => {
   chapterObserver?.disconnect();
 });
 
-// --- The verse arrives one line at a time ---
-const verseEl = ref(null);
-const verseLines = ref(0);
-const verseState = ref(''); // '' | 'is-measuring' | 'is-arriving'
-const verseWords = computed(() => `“${aiResponse.value.scripture}”`.split(/\s+/));
-
-// Group the words into the lines the browser wrapped them onto, then let each line rise in turn
-const arriveVerse = async () => {
-  if (prefersReducedMotion()) return;
-  verseState.value = 'is-measuring';
-  await nextTick();
-  await document.fonts?.ready;
-  const tops = [];
-  verseEl.value?.querySelectorAll('.verse-word').forEach((word) => {
-    let line = tops.indexOf(word.offsetTop);
-    if (line === -1) line = tops.push(word.offsetTop) - 1;
-    word.style.setProperty('--line', line);
-  });
-  verseLines.value = tops.length;
-  verseState.value = 'is-arriving';
-};
+// --- The loader covers the page until the reading and its fonts are ready ---
+const ready = ref(false);
 
 watch(loading, async (isLoading) => {
   if (isLoading) return;
-  arriveVerse();
   await nextTick();
+  await document.fonts?.ready;
+  ready.value = true;
   watchChapters();
 });
 
@@ -343,34 +326,37 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="home-view" :class="{ 'is-loading': loading }">
+  <div class="home-view" :class="{ 'is-ready': ready }">
+    <!-- Until the reading and its fonts have arrived, the page stays covered. Moved to the
+         body so it sits above the header and footer as well. -->
+    <Teleport to="body">
+      <Transition name="loader">
+        <div v-if="!ready" class="page-loader" role="status">
+          <AppLogo class="loader-mark" />
+          <p class="loader-text">Preparing {{ isToday ? "today's" : 'the' }} reading…</p>
+        </div>
+      </Transition>
+    </Teleport>
+
     <!-- Scripture: the first chapter, and the one large moment -->
     <section
       class="chapter chapter--navy chapter--scripture"
-      :class="verseState"
-      :style="{ '--lines': verseLines }"
       data-chapter="scripture"
       aria-labelledby="day-title"
     >
       <div class="chapter-inner">
         <!-- The chapter's name, like the others: what this is, and for which day -->
-        <h1 id="day-title" class="scripture-title" v-reveal>
+        <h1 id="day-title" class="scripture-title">
           {{ isToday ? "Today's Scripture" : 'Scripture' }}<span class="scripture-date">{{
             formattedDate
           }}</span>
         </h1>
         <template v-if="!loading">
-          <!-- Each word is a span so the verse can arrive one line at a time -->
-          <blockquote ref="verseEl" class="verse" :class="verseSize">
-            <template v-for="(word, i) in verseWords" :key="i"
-              ><span class="verse-word">{{ word }}</span>{{ ' ' }}</template
-            >
-          </blockquote>
+          <blockquote class="verse" :class="verseSize">“{{ aiResponse.scripture }}”</blockquote>
           <p class="verse-ref">
             <cite>{{ aiResponse.verse_ref }}</cite>
           </p>
         </template>
-        <p v-else class="verse-waiting" role="status">Preparing today's reading…</p>
       </div>
     </section>
 
@@ -595,44 +581,80 @@ onMounted(() => {
   }
 }
 
-.verse-waiting {
+// The scripture comes up as one piece as the loader clears
+@include motion-ok {
+  .home-view.is-ready {
+    .scripture-title,
+    .verse,
+    .verse-ref {
+      animation: scripture-rise 1.1s $ease-out both;
+    }
+
+    .verse {
+      animation-delay: 0.1s;
+    }
+
+    .verse-ref {
+      animation-delay: 0.25s;
+    }
+  }
+}
+
+@keyframes scripture-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+// --- The loader: the navy of the first chapter, the logo breathing ---
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.5rem;
+  background: $color-navy;
+}
+
+.loader-mark {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  @include motion-ok {
+    animation: breathe 2.4s ease-in-out infinite;
+  }
+}
+
+.loader-text {
+  font-family: $font-family-serif;
   font-size: $step-lead;
   font-style: italic;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: $color-navy-ink-soft;
 }
 
-// The verse arrives one line at a time (only when motion is allowed)
-.verse-word {
-  display: inline-block;
-  // Each word is its own box, so it must not inherit the verse's hanging indent
-  text-indent: 0;
-}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.92);
+  }
 
-.chapter--scripture.is-measuring {
-  .verse-word,
-  .verse-ref {
-    opacity: 0;
+  50% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.chapter--scripture.is-arriving {
-  .verse-word {
-    animation: line-rise 1.2s $ease-out both;
-    animation-delay: calc(var(--line, 0) * 150ms + 150ms);
-  }
-
-  .verse-ref {
-    animation: line-rise 1.2s $ease-out both;
-    animation-delay: calc(var(--lines, 0) * 150ms + 300ms);
-  }
+.loader-leave-active {
+  transition: opacity 0.6s ease;
 }
 
-@keyframes line-rise {
-  from {
-    opacity: 0;
-    transform: translateY(0.35em);
-  }
+.loader-leave-to {
+  opacity: 0;
 }
 
 // --- Reflection: set for reading, at a generous size ---

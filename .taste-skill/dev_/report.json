@@ -1,6 +1,6 @@
 {
- "url": "http://localhost:5173/",
- "at": "2026-10-28T16:22:24.721Z",
+ "url": "http://localhost:5180/",
+ "at": "2026-10-28T17:27:09.580Z",
  "allow": [
   "headline-lines",
   "hero-words",
@@ -8,7 +8,8 @@
   "few-pictures",
   "first-action",
   "dev-server",
-  "small-title"
+  "small-title",
+  "gradient-text"
  ],
  "viewports": [
   {
@@ -17,15 +18,15 @@
    "load": "load",
    "screens": 4,
    "filled": [
-    0.41,
+    0.42,
     0.55,
     0.8,
-    0.61
+    0.69
    ],
    "motion": {
-    "elements": 59,
-    "css": 41,
-    "transitions": 18,
+    "elements": 24,
+    "css": 5,
+    "transitions": 19,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -36,9 +37,9 @@
      "h": 900
     },
     "page": {
-     "height": 3135,
-     "screens": 3.5,
-     "words": 227,
+     "height": 3102,
+     "screens": 3.4,
+     "words": 229,
      "img": 0,
      "video": 0,
      "canvas": 0,
@@ -165,12 +166,12 @@
      "families": [
       {
        "family": "Jost",
-       "share": 0.67,
+       "share": 0.65,
        "mono": false
       },
       {
        "family": "Cormorant Garamond",
-       "share": 0.33,
+       "share": 0.35,
        "mono": false
       }
      ],
@@ -256,11 +257,11 @@
      "textColors": [
       {
        "color": "#1d1d1f",
-       "share": 0.44
+       "share": 0.42
       },
       {
        "color": "#f5f0e6",
-       "share": 0.38
+       "share": 0.42
       },
       {
        "color": "#66625b",
@@ -272,7 +273,7 @@
       },
       {
        "color": "#c9a96e",
-       "share": 0.03
+       "share": 0.01
       }
      ],
      "button": null,
@@ -326,10 +327,10 @@
      "w": 1440,
      "h": 900
     },
-    "pageH": 3135,
+    "pageH": 3102,
     "margins": {
-     "left": 96,
-     "right": 105
+     "left": 68,
+     "right": 96
     },
     "sections": [
      {
@@ -341,9 +342,9 @@
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "“You",
+       "text": "“You are no longer strangers and sojourners, but y",
        "size": 67,
-       "tag": "span"
+       "tag": "blockquote"
       },
       "left": 68,
       "right": 105,
@@ -359,15 +360,15 @@
       "sel": "footer.app-footer",
       "tag": "footer",
       "top": 2774,
-      "height": 362,
-      "words": 22,
+      "height": 328,
+      "words": 24,
       "media": 0,
-      "middle": 197,
+      "middle": 401,
       "heading": null,
       "left": 96,
-      "right": 641,
+      "right": 96,
       "textLeft": 96,
-      "textRight": 641,
+      "textRight": 96,
       "fullBleed": false,
       "footer": true,
       "hero": false,
@@ -395,21 +396,25 @@
       "n": 4
      },
      {
+      "x": 68,
+      "n": 1
+     },
+     {
       "x": 271,
       "n": 1
      }
     ],
-    "leftBlocks": 10,
+    "leftBlocks": 11,
     "bodySize": 24,
     "stage": false,
-    "explains": false,
+    "explains": true,
     "slivers": [],
-    "voidShare": 0.24,
+    "voidShare": 0.21,
     "voidBox": {
-     "x": 420,
-     "y": 600,
-     "w": 1020,
-     "h": 300
+     "x": 300,
+     "y": 660,
+     "w": 1140,
+     "h": 240
     }
    },
    "app": null,
@@ -424,12 +429,12 @@
     0.57,
     0.86,
     0.83,
-    0.72
+    0.64
    ],
    "motion": {
-    "elements": 53,
-    "css": 41,
-    "transitions": 12,
+    "elements": 18,
+    "css": 5,
+    "transitions": 13,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -440,9 +445,9 @@
      "h": 844
     },
     "page": {
-     "height": 3022,
+     "height": 3070,
      "screens": 3.6,
-     "words": 228,
+     "words": 230,
      "img": 0,
      "video": 0,
      "canvas": 0,
@@ -737,12 +742,12 @@
      "families": [
       {
        "family": "Jost",
-       "share": 0.67,
+       "share": 0.65,
        "mono": false
       },
       {
        "family": "Cormorant Garamond",
-       "share": 0.33,
+       "share": 0.35,
        "mono": false
       }
      ],
@@ -828,11 +833,11 @@
      "textColors": [
       {
        "color": "#1d1d1f",
-       "share": 0.44
+       "share": 0.42
       },
       {
        "color": "#f5f0e6",
-       "share": 0.38
+       "share": 0.42
       },
       {
        "color": "#66625b",
@@ -844,7 +849,7 @@
       },
       {
        "color": "#c9a96e",
-       "share": 0.03
+       "share": 0.01
       }
      ],
      "button": null,
@@ -898,10 +903,10 @@
      "w": 390,
      "h": 844
     },
-    "pageH": 3022,
+    "pageH": 3070,
     "margins": {
      "left": 20,
-     "right": 25
+     "right": 20
     },
     "sections": [
      {
@@ -913,9 +918,9 @@
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "“You",
+       "text": "“You are no longer strangers and sojourners, but y",
        "size": 34,
-       "tag": "span"
+       "tag": "blockquote"
       },
       "left": 20,
       "right": 25,
@@ -931,8 +936,8 @@
       "sel": "footer.app-footer",
       "tag": "footer",
       "top": 2662,
-      "height": 360,
-      "words": 22,
+      "height": 408,
+      "words": 24,
       "media": 0,
       "middle": 0,
       "heading": null,
@@ -960,13 +965,13 @@
     "edges": [
      {
       "x": 20,
-      "n": 10
+      "n": 11
      }
     ],
-    "leftBlocks": 10,
+    "leftBlocks": 11,
     "bodySize": 24,
     "stage": false,
-    "explains": false,
+    "explains": true,
     "slivers": [],
     "voidShare": 0,
     "voidBox": null
@@ -976,16 +981,6 @@
   }
  ],
  "findings": [
-  {
-   "level": "FAIL",
-   "id": "gradient-text",
-   "width": 1440,
-   "message": "1 gradient-filled text element(s).",
-   "fix": "Solid colour text.",
-   "alsoAt": [
-    390
-   ]
-  },
   {
    "level": "WARN",
    "id": "palette-cream",
@@ -1002,6 +997,13 @@
    "width": 1440,
    "message": "No video anywhere on the page.",
    "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 68px on the left, 96px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
   }
  ],
  "images": [

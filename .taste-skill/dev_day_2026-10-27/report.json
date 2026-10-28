@@ -1,6 +1,6 @@
 {
- "url": "http://localhost:5173/day/2026-10-27",
- "at": "2026-10-28T16:22:58.948Z",
+ "url": "http://localhost:5180/day/2026-10-27",
+ "at": "2026-10-28T17:26:33.161Z",
  "allow": [
   "headline-lines",
   "hero-words",
@@ -8,7 +8,8 @@
   "few-pictures",
   "first-action",
   "dev-server",
-  "small-title"
+  "small-title",
+  "gradient-text"
  ],
  "viewports": [
   {
@@ -20,12 +21,12 @@
     0.43,
     0.54,
     0.86,
-    0.61
+    0.69
    ],
    "motion": {
-    "elements": 70,
-    "css": 52,
-    "transitions": 18,
+    "elements": 24,
+    "css": 5,
+    "transitions": 19,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -36,9 +37,9 @@
      "h": 900
     },
     "page": {
-     "height": 3001,
+     "height": 2967,
      "screens": 3.3,
-     "words": 218,
+     "words": 220,
      "img": 0,
      "video": 0,
      "canvas": 0,
@@ -165,12 +166,12 @@
      "families": [
       {
        "family": "Jost",
-       "share": 0.65,
+       "share": 0.63,
        "mono": false
       },
       {
        "family": "Cormorant Garamond",
-       "share": 0.35,
+       "share": 0.37,
        "mono": false
       }
      ],
@@ -255,12 +256,12 @@
      ],
      "textColors": [
       {
-       "color": "#1d1d1f",
+       "color": "#f5f0e6",
        "share": 0.44
       },
       {
-       "color": "#f5f0e6",
-       "share": 0.4
+       "color": "#1d1d1f",
+       "share": 0.41
       },
       {
        "color": "#a9afbd",
@@ -272,7 +273,7 @@
       },
       {
        "color": "#c9a96e",
-       "share": 0.03
+       "share": 0.01
       }
      ],
      "button": null,
@@ -326,10 +327,10 @@
      "w": 1440,
      "h": 900
     },
-    "pageH": 3001,
+    "pageH": 2967,
     "margins": {
-     "left": 96,
-     "right": 113
+     "left": 68,
+     "right": 96
     },
     "sections": [
      {
@@ -337,13 +338,13 @@
       "tag": "main",
       "top": 89,
       "height": 2550,
-      "words": 189,
+      "words": 185,
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "“Jesus",
+       "text": "“Jesus said, 'What is the Kingdom of God like? To ",
        "size": 67,
-       "tag": "span"
+       "tag": "blockquote"
       },
       "left": 68,
       "right": 113,
@@ -359,15 +360,15 @@
       "sel": "footer.app-footer",
       "tag": "footer",
       "top": 2639,
-      "height": 362,
-      "words": 22,
+      "height": 328,
+      "words": 24,
       "media": 0,
-      "middle": 197,
+      "middle": 401,
       "heading": null,
       "left": 96,
-      "right": 641,
+      "right": 96,
       "textLeft": 96,
-      "textRight": 641,
+      "textRight": 96,
       "fullBleed": false,
       "footer": true,
       "hero": false,
@@ -395,14 +396,18 @@
       "n": 3
      },
      {
+      "x": 68,
+      "n": 1
+     },
+     {
       "x": 199,
       "n": 1
      }
     ],
-    "leftBlocks": 9,
+    "leftBlocks": 10,
     "bodySize": 24,
     "stage": false,
-    "explains": false,
+    "explains": true,
     "slivers": [],
     "voidShare": 0.22,
     "voidBox": {
@@ -424,12 +429,12 @@
     0.61,
     0.85,
     0.85,
-    0.72
+    0.64
    ],
    "motion": {
-    "elements": 64,
-    "css": 52,
-    "transitions": 12,
+    "elements": 18,
+    "css": 5,
+    "transitions": 13,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -440,9 +445,9 @@
      "h": 844
     },
     "page": {
-     "height": 2947,
+     "height": 2995,
      "screens": 3.5,
-     "words": 219,
+     "words": 221,
      "img": 0,
      "video": 0,
      "canvas": 0,
@@ -737,12 +742,12 @@
      "families": [
       {
        "family": "Jost",
-       "share": 0.65,
+       "share": 0.63,
        "mono": false
       },
       {
        "family": "Cormorant Garamond",
-       "share": 0.35,
+       "share": 0.37,
        "mono": false
       }
      ],
@@ -827,12 +832,12 @@
      ],
      "textColors": [
       {
-       "color": "#1d1d1f",
+       "color": "#f5f0e6",
        "share": 0.44
       },
       {
-       "color": "#f5f0e6",
-       "share": 0.4
+       "color": "#1d1d1f",
+       "share": 0.41
       },
       {
        "color": "#a9afbd",
@@ -844,7 +849,7 @@
       },
       {
        "color": "#c9a96e",
-       "share": 0.03
+       "share": 0.01
       }
      ],
      "button": null,
@@ -898,10 +903,10 @@
      "w": 390,
      "h": 844
     },
-    "pageH": 2947,
+    "pageH": 2995,
     "margins": {
      "left": 20,
-     "right": 22
+     "right": 20
     },
     "sections": [
      {
@@ -909,13 +914,13 @@
       "tag": "main",
       "top": 69,
       "height": 2518,
-      "words": 187,
+      "words": 183,
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "“Jesus",
+       "text": "“Jesus said, 'What is the Kingdom of God like? To ",
        "size": 34,
-       "tag": "span"
+       "tag": "blockquote"
       },
       "left": 20,
       "right": 22,
@@ -931,8 +936,8 @@
       "sel": "footer.app-footer",
       "tag": "footer",
       "top": 2587,
-      "height": 360,
-      "words": 22,
+      "height": 408,
+      "words": 24,
       "media": 0,
       "middle": 0,
       "heading": null,
@@ -960,13 +965,13 @@
     "edges": [
      {
       "x": 20,
-      "n": 8
+      "n": 9
      }
     ],
-    "leftBlocks": 8,
+    "leftBlocks": 9,
     "bodySize": 24,
     "stage": false,
-    "explains": false,
+    "explains": true,
     "slivers": [],
     "voidShare": 0,
     "voidBox": null
@@ -976,16 +981,6 @@
   }
  ],
  "findings": [
-  {
-   "level": "FAIL",
-   "id": "gradient-text",
-   "width": 1440,
-   "message": "1 gradient-filled text element(s).",
-   "fix": "Solid colour text.",
-   "alsoAt": [
-    390
-   ]
-  },
   {
    "level": "WARN",
    "id": "palette-cream",
@@ -1007,15 +1002,8 @@
    "level": "WARN",
    "id": "off-centre",
    "width": 1440,
-   "message": "The margins differ: 96px on the left, 113px on the right, at 1440px.",
+   "message": "The margins differ: 68px on the left, 96px on the right, at 1440px.",
    "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
-  },
-  {
-   "level": "WARN",
-   "id": "name-only-title",
-   "width": 1440,
-   "message": "The h1 is a bare name (\"ScriptureTuesday, October 27\") and nothing else on the first screen says what this is.",
-   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
   }
  ],
  "images": [
