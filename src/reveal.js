@@ -15,8 +15,9 @@ const watch = (className, options) =>
         });
       }, options);
 
-// Reveal as soon as any part shows, so content peeking at the fold never sits blank
-const revealObserver = watch('is-revealed', { rootMargin: '0px' });
+// Reveal as soon as any part shows, so content peeking at the fold never sits blank. The
+// margin matches the 1rem the hidden element sits low, so its true place counts, not that
+const revealObserver = watch('is-revealed', { rootMargin: '0px 0px 16px 0px' });
 
 export const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -26,7 +27,11 @@ export const reveal = {
     if (!revealObserver || prefersReducedMotion()) return;
     el.style.setProperty('--reveal-delay', `${(binding.value || 0) * STAGGER_MS}ms`);
     el.classList.add('reveal');
-    revealObserver.observe(el);
+    // Wait for the fonts: until they arrive the page is still settling, and a line judged
+    // on screen (or off it) in that first layout may not be once it settles
+    Promise.resolve(document.fonts?.ready).then(() => {
+      if (el.isConnected) revealObserver.observe(el);
+    });
   },
   unmounted(el) {
     revealObserver?.unobserve(el);

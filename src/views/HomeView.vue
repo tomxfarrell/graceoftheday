@@ -4,7 +4,7 @@ import { supabase, dateKey, dateFromKey } from '../supabase';
 import { liturgicalField } from '../liturgicalColors';
 import { currentFeast, liturgicalSeason, todaysVerse } from '../liturgicalSeason';
 import { getEaster } from '../liturgicalCalendar';
-import AppLogo from '../components/AppLogo.vue';
+import PageLoader from '../components/PageLoader.vue';
 import { prefersReducedMotion } from '../reveal';
 
 // Today when the address is the home page; a past day at /day/YYYY-MM-DD
@@ -108,8 +108,48 @@ const goToChapter = (id) => {
     ?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
 };
 
+// --- On a phone the first screen ends on the reflection's name and day, never on a bare
+// strip of its ground. A long verse first gives up some of its bottom space; if that is
+// not enough, the reflection waits wholly below the fold instead ---
+const narrowScreen = window.matchMedia('(max-width: 959px)');
+const PEEK_ROOM = 24; // ground left showing beneath the day's name
+const MAX_TIGHTEN = 56; // how much of the scripture's bottom space may be given up
+
+const fitFirstScreen = () => {
+  const scripture = document.querySelector('.chapter--scripture');
+  const label = document.querySelector('[data-chapter="reflection"] .row-label');
+  if (!scripture || !label) return;
+  scripture.style.minHeight = '';
+  scripture.style.paddingBottom = '';
+  if (!narrowScreen.matches) return;
+
+  const fold = window.innerHeight;
+  const box = scripture.getBoundingClientRect();
+  const bottom = box.bottom + window.scrollY;
+  if (bottom >= fold) return;
+
+  const peek = label.getBoundingClientRect().bottom - box.bottom + PEEK_ROOM;
+  const spare = fold - bottom - peek;
+  if (spare >= 0) {
+    scripture.style.minHeight = `${box.height + spare}px`;
+  } else if (-spare <= MAX_TIGHTEN) {
+    scripture.style.paddingBottom = `${parseFloat(getComputedStyle(scripture).paddingBottom) + spare}px`;
+  } else {
+    scripture.style.minHeight = `${box.height + fold - bottom + 1}px`;
+  }
+};
+
+// Only a change of width (turning the phone) re-fits, not the address bar coming and going
+let fittedWidth = 0;
+const refitOnTurn = () => {
+  if (window.innerWidth === fittedWidth) return;
+  fittedWidth = window.innerWidth;
+  fitFirstScreen();
+};
+
 onBeforeUnmount(() => {
   chapterObserver?.disconnect();
+  window.removeEventListener('resize', refitOnTurn);
 });
 
 // --- The loader covers the page until the reading and its fonts are ready ---
@@ -119,6 +159,9 @@ watch(loading, async (isLoading) => {
   if (isLoading) return;
   await nextTick();
   await document.fonts?.ready;
+  fittedWidth = window.innerWidth;
+  fitFirstScreen();
+  window.addEventListener('resize', refitOnTurn);
   ready.value = true;
   watchChapters();
 });
@@ -327,16 +370,7 @@ onMounted(() => {
 
 <template>
   <div class="home-view" :class="{ 'is-ready': ready }">
-    <!-- Until the reading and its fonts have arrived, the page stays covered. Moved to the
-         body so it sits above the header and footer as well. -->
-    <Teleport to="body">
-      <Transition name="loader">
-        <div v-if="!ready" class="page-loader" role="status">
-          <AppLogo class="loader-mark" />
-          <p class="loader-text">Preparing {{ isToday ? "today's" : 'the' }} reading…</p>
-        </div>
-      </Transition>
-    </Teleport>
+    <PageLoader :show="!ready" :text="`Preparing ${isToday ? 'today\'s' : 'the'} reading…`" />
 
     <!-- Scripture: the first chapter, and the one large moment -->
     <section
@@ -605,56 +639,6 @@ onMounted(() => {
     opacity: 0;
     transform: translateY(1rem);
   }
-}
-
-// --- The loader: the navy of the first chapter, the logo breathing ---
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 1.5rem;
-  background: $color-navy;
-}
-
-.loader-mark {
-  width: 3.5rem;
-  height: 3.5rem;
-
-  @include motion-ok {
-    animation: breathe 2.4s ease-in-out infinite;
-  }
-}
-
-.loader-text {
-  font-family: $font-family-serif;
-  font-size: $step-lead;
-  font-style: italic;
-  font-weight: 500;
-  color: $color-navy-ink-soft;
-}
-
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: scale(0.92);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.loader-leave-active {
-  transition: opacity 0.6s ease;
-}
-
-.loader-leave-to {
-  opacity: 0;
 }
 
 // --- Reflection: set for reading, at a generous size ---

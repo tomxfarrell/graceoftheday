@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import { supabase, dateKey, dateFromKey } from '../supabase';
 import { liturgicalField } from '../liturgicalColors';
+import PageLoader from '../components/PageLoader.vue';
 
 // The thirty mornings before today, newest first
 const DAYS_KEPT = 30;
@@ -9,6 +10,9 @@ const DAYS_KEPT = 30;
 const readings = ref([]);
 const loading = ref(true);
 const failed = ref(false);
+
+// The loader covers the page until the list and its fonts are ready, as on the reading
+const ready = ref(false);
 
 const formatDay = (key) =>
   new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).format(
@@ -49,6 +53,9 @@ const loadReadings = async () => {
     }));
   }
   loading.value = false;
+  await nextTick();
+  await document.fonts?.ready;
+  ready.value = true;
 };
 
 onMounted(loadReadings);
@@ -56,6 +63,8 @@ onMounted(loadReadings);
 
 <template>
   <div class="past-view">
+    <PageLoader :show="!ready" text="Gathering past readings…" />
+
     <section class="past-intro" aria-labelledby="past-title">
       <div class="past-inner">
         <h1 id="past-title" v-reveal>Past readings</h1>
@@ -89,11 +98,10 @@ onMounted(loadReadings);
           </li>
         </ol>
 
-        <p v-else-if="loading" class="past-status" role="status">Gathering past readings…</p>
         <p v-else-if="failed" class="past-status" role="status">
           Past readings could not be loaded just now. Please try again in a moment.
         </p>
-        <p v-else class="past-status">There are no earlier readings yet.</p>
+        <p v-else-if="!loading" class="past-status">There are no earlier readings yet.</p>
 
       </div>
     </section>
