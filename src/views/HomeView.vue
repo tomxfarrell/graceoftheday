@@ -667,6 +667,10 @@ onMounted(() => {
   letter-spacing: -0.02em;
   color: var(--highlight);
   overflow-wrap: anywhere;
+  // The shine below is painted only within this box, and at this line height a g or y
+  // reaches below it; room is made for the descenders without moving anything around it
+  padding-block: 0.05em 0.25em;
+  margin-block: -0.05em -0.25em;
 }
 
 // As the word comes into view, light passes across it from left to right, like a shine

@@ -92,7 +92,10 @@ onMounted(loadReadings);
               </span>
               <span class="reading-words">
                 <span class="reading-opening">“{{ reading.opening }}”</span>
-                <cite class="reading-ref">{{ reading.reference }}</cite>
+                <span class="reading-foot">
+                  <cite class="reading-ref">{{ reading.reference }}</cite>
+                  <span class="reading-go" aria-hidden="true">Read<span class="arrow">→</span></span>
+                </span>
               </span>
             </router-link>
           </li>
@@ -167,6 +170,16 @@ onMounted(loadReadings);
     text-decoration-thickness: 0.06em;
     text-underline-offset: 0.18em;
   }
+
+  &:hover .reading-go,
+  &:focus-visible .reading-go {
+    color: $color-accent-gold-dark;
+    text-decoration-color: currentColor;
+
+    .arrow {
+      transform: translateX(0.25rem);
+    }
+  }
 }
 
 .reading-day {
@@ -221,6 +234,34 @@ onMounted(loadReadings);
 
   &::before {
     content: '\2015\00a0';
+  }
+}
+
+// The reference on the left and, at the verse's right edge, a plain sign that the day opens:
+// touch screens have no hover to tell them the row is a link
+.reading-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.reading-go {
+  flex-shrink: 0;
+  font-size: $step-body;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.25em;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+
+  .arrow {
+    display: inline-block;
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
   }
 }
 
