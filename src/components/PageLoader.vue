@@ -1,10 +1,25 @@
 <script setup>
+import { ref } from 'vue';
 import AppLogo from './AppLogo.vue';
 
 defineProps({
   show: { type: Boolean, default: true },
   text: { type: String, required: true },
 });
+
+// It takes over from the loader in index.html mid-breath: both keep time with the page's
+// clock, so the logo carries on rather than starting its breath again
+const BREATH_MS = 2400;
+const breathDelay = `${-(performance.now() % BREATH_MS)}ms`;
+
+// The text waits for its typeface rather than flashing a fallback
+const LOADER_FONT = 'italic 500 1em "Cormorant Garamond"';
+const fontsReady = ref(!document.fonts || document.fonts.check(LOADER_FONT));
+if (!fontsReady.value) {
+  document.fonts.load(LOADER_FONT).then(() => {
+    fontsReady.value = true;
+  });
+}
 </script>
 
 <template>
@@ -13,8 +28,8 @@ defineProps({
   <Teleport to="body">
     <Transition name="loader">
       <div v-if="show" class="page-loader" role="status">
-        <AppLogo class="loader-mark" />
-        <p class="loader-text">{{ text }}</p>
+        <AppLogo class="loader-mark" :style="{ animationDelay: breathDelay }" />
+        <p class="loader-text" :class="{ 'is-ready': fontsReady }">{{ text }}</p>
       </div>
     </Transition>
   </Teleport>
@@ -51,6 +66,12 @@ defineProps({
   font-style: italic;
   font-weight: 500;
   color: $color-navy-ink-soft;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-ready {
+    opacity: 1;
+  }
 }
 
 @keyframes breathe {

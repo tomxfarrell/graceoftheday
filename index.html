@@ -34,6 +34,108 @@
     </script>
   </head>
   <body>
+    <!-- The loader from the first paint, before any script has arrived. It matches the app's
+         own (src/components/PageLoader.vue), which takes over once the page has rendered
+         beneath it; main.js then removes this one. -->
+    <style>
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 21;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 1.5rem;
+        background: #111827;
+      }
+
+      #boot-loader svg {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+
+      #boot-loader p {
+        margin: 0;
+        font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+        font-size: 1.3125rem;
+        font-style: italic;
+        font-weight: 500;
+        color: #a9afbd;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #boot-loader.fonts-ready p {
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        #boot-loader svg {
+          animation: boot-breathe 2.4s ease-in-out infinite;
+        }
+      }
+
+      @keyframes boot-breathe {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(0.92);
+        }
+
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+    <div id="boot-loader" role="status">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="bootSun" cx="32" cy="32" r="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFF9C4" />
+            <stop offset="45%" stop-color="#FFC107" />
+            <stop offset="100%" stop-color="#FF8F00" />
+          </radialGradient>
+        </defs>
+        <g stroke="url(#bootSun)" stroke-width="2" stroke-linecap="round">
+          <path d="M32 2V10" />
+          <path d="M32 54V62" />
+          <path d="M2 32H10" />
+          <path d="M54 32H62" />
+          <path d="M11 11L17 17" />
+          <path d="M47 47L53 53" />
+          <path d="M11 53L17 47" />
+          <path d="M47 17L53 11" />
+        </g>
+        <circle cx="32" cy="32" r="18" fill="url(#bootSun)" />
+        <path d="M32 18V46" stroke="white" stroke-width="4" stroke-linecap="round" />
+        <path d="M23 28H41" stroke="white" stroke-width="4" stroke-linecap="round" />
+      </svg>
+      <p></p>
+    </div>
+    <script>
+      // The same words the page's own loader will show, so the handover is unseen
+      (function () {
+        var loader = document.getElementById('boot-loader');
+        var path = location.pathname;
+        // Breathes in time with the page's clock, as the app's loader does, so it can take over
+        loader.querySelector('svg').style.animationDelay = -(performance.now() % 2400) + 'ms';
+        loader.querySelector('p').textContent =
+          path === '/past'
+            ? 'Gathering past readings…'
+            : path.indexOf('/day/') === 0
+              ? 'Preparing the reading…'
+              : 'Preparing today’s reading…';
+        // The text waits for its typeface rather than flashing a fallback
+        if (document.fonts) {
+          document.fonts.load('italic 500 1em "Cormorant Garamond"').then(function () {
+            loader.classList.add('fonts-ready');
+          });
+        } else {
+          loader.classList.add('fonts-ready');
+        }
+      })();
+    </script>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
