@@ -66,7 +66,17 @@ const shareVerse = async () => {
           <span class="visually-hidden" role="status">{{ copied ? 'Verse copied to share' : '' }}</span>
         </div>
         <!-- The footer's base line, on the page's left edge beneath everything -->
-        <p class="copyright">&copy; {{ currentYear }} Grace of the Day</p>
+        <p class="copyright">
+          &copy; {{ currentYear }} Grace of the Day<span class="credit">
+            Designed and built by
+            <a
+              href="https://iamtomfarrell.com/?utm_source=graceoftheday&utm_medium=referral&utm_campaign=footer_credit"
+              target="_blank"
+              rel="noopener"
+              >Tom Farrell</a
+            ></span
+          >
+        </p>
       </div>
     </footer>
   </div>
@@ -231,6 +241,31 @@ const shareVerse = async () => {
     margin-top: clamp(3rem, 6vw, 5rem);
     font-size: $step-small;
     color: var(--ink-soft);
+  }
+
+  // Who made the site: kept to the copyright's size and ink. It wraps as one piece, and on
+  // a narrow phone takes its own line in place of the dot.
+  .credit {
+    display: inline-block;
+
+    &::before {
+      content: '\00a0·';
+    }
+
+    @media (max-width: 559px) {
+      display: block;
+      margin-top: 0.25rem;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    a {
+      color: inherit;
+      font-weight: 500;
+      @include quiet-underline;
+    }
   }
 }
 
