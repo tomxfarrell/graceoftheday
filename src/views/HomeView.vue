@@ -139,11 +139,24 @@ const fitFirstScreen = () => {
   }
 };
 
+// The virtue's word is never split across lines: when its longest word is wider than the
+// column, the whole word steps down in size until it fits
+const fitVirtueWord = () => {
+  const word = document.querySelector('.virtue-word');
+  if (!word) return;
+  word.style.fontSize = '';
+  const { clientWidth: room, scrollWidth: needed } = word;
+  if (needed <= room) return;
+  const size = parseFloat(getComputedStyle(word).fontSize);
+  word.style.fontSize = `${Math.floor((size * room) / needed) - 1}px`;
+};
+
 // Only a change of width (turning the phone) re-fits, not the address bar coming and going
 let fittedWidth = 0;
 const refitOnTurn = () => {
   if (window.innerWidth === fittedWidth) return;
   fittedWidth = window.innerWidth;
+  fitVirtueWord();
   fitFirstScreen();
 };
 
@@ -160,6 +173,7 @@ watch(loading, async (isLoading) => {
   await nextTick();
   await document.fonts?.ready;
   fittedWidth = window.innerWidth;
+  fitVirtueWord();
   fitFirstScreen();
   window.addEventListener('resize', refitOnTurn);
   ready.value = true;
@@ -434,7 +448,7 @@ onMounted(() => {
           <div class="row-label">
             <h2 id="virtue-title" v-reveal>Today's Virtue</h2>
           </div>
-          <div>
+          <div class="virtue-body">
             <p class="virtue-word" v-reveal="1">{{ virtueParts.word }}</p>
             <p v-if="virtueParts.rest" class="virtue-rest" v-reveal="2">{{ virtueParts.rest }}</p>
           </div>
@@ -659,6 +673,12 @@ onMounted(() => {
 }
 
 // --- Virtue: one word in gold ---
+// Held to its column, so a word too long for it shows as overflow for fitVirtueWord to
+// measure, rather than widening the column and the page
+.virtue-body {
+  min-width: 0;
+}
+
 .virtue-word {
   font-family: $font-family-serif;
   font-size: clamp(4rem, 1.5rem + 8vw, 10rem);
@@ -666,7 +686,9 @@ onMounted(() => {
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--highlight);
-  overflow-wrap: anywhere;
+  // A word is never split; fitVirtueWord sets it smaller instead
+  overflow-wrap: normal;
+  hyphens: none;
   // The shine below is painted only within this box, and at this line height a g or y
   // reaches below it; room is made for the descenders without moving anything around it
   padding-block: 0.05em 0.25em;
