@@ -3,8 +3,8 @@
   publish = "dist"
   functions = "netlify/functions"
 
-[functions."keep-alive"]
-  schedule = "@daily"
+[functions."daily-reflection"]
+  schedule = "0 */6 * * *"
 
 [[redirects]]
   from = "/*"
