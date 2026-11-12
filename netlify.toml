@@ -3,6 +3,9 @@
   publish = "dist"
   functions = "netlify/functions"
 
+[functions."keep-alive"]
+  schedule = "@daily"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
